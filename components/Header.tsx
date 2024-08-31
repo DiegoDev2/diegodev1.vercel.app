@@ -1,30 +1,17 @@
 "use client"; 
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { usePathname } from 'next/navigation';
 import { FaTwitter, FaMastodon, FaDiscord, FaYoutube, FaTwitch } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
 
 const Header: React.FC = () => {
   const currentPath = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // Detecta si se ha desplazado más de 50px
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const isActive = (path: string) => (currentPath === path ? 'text-blue-500' : 'text-gray-300 hover:text-white');
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-neutral-900/90 py-2 shadow-lg' : 'bg-neutral-800/90 py-4'}`}>
+    <header className="bg-neutral-800/90 fixed w-full text-white py-4 rounded-2xl mx-auto my-4 max-w-screen-xl">
       <div className="flex flex-wrap items-center justify-between w-full px-4 md:px-8">
         <div className="flex items-center space-x-2 text-2xl md:text-3xl">
           <p>DiegoDev1</p>
