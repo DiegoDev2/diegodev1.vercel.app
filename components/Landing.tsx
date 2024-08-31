@@ -11,7 +11,9 @@ export default function Landing() {
       <Image
         src="/megumi.jpeg" 
         alt="Avatar"
-        className="rounded-full justify-center w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56"
+        width={736}
+        height={736}
+        className="rounded-full justify-center  md:w-48 md:h-48 lg:w-56 lg:h-56"
       />
     </div>
    
