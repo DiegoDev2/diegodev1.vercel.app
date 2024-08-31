@@ -1,6 +1,6 @@
 import { FaGithub } from 'react-icons/fa';
 import { SiGo, SiAstro, SiTailwindcss } from 'react-icons/si';
-
+import Image from 'next/image'
 const CurrentProject = () => {
   return (
     <section className="flex flex-col items-center justify-center min-h-screen text-white font-pixel">
@@ -9,7 +9,7 @@ const CurrentProject = () => {
         <div className="flex flex-col items-center">
           <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 p-2 rounded-full">
             
-            <img src="./logoLatte.png" alt="LattePkg Logo" className="w-24 h-24" />
+            <Image src="./logoLatte.png" alt="LattePkg Logo" className="w-24 h-24" />
           </div>
           <h3 className="text-2xl mt-4 mb-2">LattePkg</h3>
           <p className="text-center mb-4">Package manager with a focus on performance and functionality.</p>
