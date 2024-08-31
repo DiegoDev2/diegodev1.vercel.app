@@ -8,6 +8,23 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+#nprogress .bar {
+  background: #1d4ed8; /* bg-blue-500 */
+  height: 4px;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #1d4ed8, 0 0 5px #1d4ed8; /* Optional, for a glowing effect */
+}
+
+#nprogress .spinner {
+  border-top-color: #1d4ed8; /* bg-blue-500 */
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #1d4ed8; /* bg-blue-500 */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

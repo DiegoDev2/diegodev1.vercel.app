@@ -1,43 +1,61 @@
-"use client"; 
+"use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { FaTwitter, FaMastodon, FaDiscord, FaYoutube, FaTwitch } from 'react-icons/fa';
+import { FaTwitter, FaMastodon, FaDiscord, FaYoutube, FaTwitch, FaBars, FaTimes } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
+import  Link  from 'next/link'
 
 const Header: React.FC = () => {
   const currentPath = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isActive = (path: string) => (currentPath === path ? 'text-blue-500' : 'text-gray-300 hover:text-white');
 
   return (
     <header className="bg-neutral-800/90 fixed w-full text-white py-4 rounded-2xl mx-auto my-4 max-w-screen-xl">
       <div className="flex flex-wrap items-center justify-between w-full px-4 md:px-8">
-        <div className="flex items-center space-x-2 text-2xl md:text-3xl">
-          <p>DiegoDev1</p>
+        <div className="flex items-center space-x-4">
+          <p className="text-2xl md:text-3xl">DiegoDev1</p>
+          {/* Menú de navegación en pantalla grande */}
+          <nav className="hidden md:flex space-x-4 text-base sm:text-lg md:text-xl text-gray-300">
+            <a href="/" className={isActive('/')}>/home/</a>
+            <a href="/projects" className={isActive('/projects')}>/projects/</a>
+          </nav>
         </div>
-        <nav className="mt-4 md:mt-0 space-x-4 text-base sm:text-lg md:text-xl text-gray-300">
-          <a href="/" className={isActive('/')}>/home/</a>
-          <a href="/blog/" className={isActive('/blog/')}>/blog/</a>
-          <a href="/projects/" className={isActive('/projects/')}>/projects/</a>
+        
+        {/* Botón de hamburguesa para dispositivos móviles */}
+        <button
+          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </button>
+        
+        {/* Menú de navegación (para dispositivos móviles) */}
+        <nav className={`${
+          menuOpen ? 'block' : 'hidden'
+          } absolute top-full left-0 w-full bg-neutral-800/90 mt-2 py-4 px-4 space-y-4 text-base sm:text-lg md:text-xl text-gray-300`}>
+          <Link href="/" className={isActive('/')}>/home/</Link>
+          <Link href="/projects" className={isActive('/projects')}>/projects/</Link>
         </nav>
-        <div className="flex items-center space-x-4 mt-4 md:mt-0">
-          <a href="https://twitter.com" aria-label="Twitter" className="hover:text-blue-400">
+
+        {/* Íconos de redes sociales (solo visibles en pantallas grandes) */}
+        <div className="hidden md:flex md:items-center md:space-x-4 mt-4 md:mt-0">
+          <a href="https://x.com/Diegodev5" aria-label="Twitter" className="hover:text-blue-400">
             <FaTwitter size={20} />
           </a>
-          <a href="https://mastodon.social" aria-label="Mastodon" className="hover:text-indigo-500">
-            <FaMastodon size={20} />
-          </a>
-          <a href="https://github.com" aria-label="GitHub" className="hover:text-gray-500">
+          <a href="https://github.com/CodeDiego15" aria-label="GitHub" className="hover:text-gray-500">
             <FiGithub size={20} />
           </a>
           <a href="https://discord.com" aria-label="Discord" className="hover:text-blue-600">
             <FaDiscord size={20} />
           </a>
-          <a href="https://youtube.com" aria-label="YouTube" className="hover:text-red-600">
+          <a href="https://www.youtube.com/@DiegoDev2" aria-label="YouTube" className="hover:text-red-600">
             <FaYoutube size={20} />
           </a>
-          <a href="https://twitch.tv" aria-label="Twitch" className="hover:text-purple-600">
+          <a href="https://www.twitch.tv/diego_dev3" aria-label="Twitch" className="hover:text-purple-600">
             <FaTwitch size={20} />
           </a>
         </div>

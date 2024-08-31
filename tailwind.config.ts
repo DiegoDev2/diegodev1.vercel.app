@@ -16,6 +16,7 @@ const config: Config = {
       },
       animation: {
         starAnimation: 'starAnimation 400s linear infinite',
+        'spin-slow': 'spin 10s linear infinite',
       },
     },
   },
