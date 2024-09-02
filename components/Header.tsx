@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ setIsAnimating }) => {
           </nav>
         </div>
         
-        {/* Botón de hamburguesa para dispositivos móviles */}
+       
         <button
           className="md:hidden text-gray-300 hover:text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -69,15 +69,7 @@ const Header: React.FC<HeaderProps> = ({ setIsAnimating }) => {
           <a href="https://www.twitch.tv/diego_dev3" aria-label="Twitch" className="hover:text-purple-600">
             <FaTwitch size={20} />
           </a>
-          <p className="text-gray-300">|</p> {/* Separador */}
-          <button
-            onClick={toggleAnimation}
-            className={`text-white hover:text-white transition-all duration-300 ease-in-out p-2 rounded-full ${
-              isAnimating ? ' hover:' : ' hover:'
-            }`}
-          >
-            {isAnimating ? <FaPause size={24} /> : <FaPlay size={24} />}
-          </button>
+          
         </div>
       </div>
     </header>
