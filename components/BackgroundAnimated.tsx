@@ -24,7 +24,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ children, isAni
         }}
       ></div>
       <div className="relative z-10">
-        {children} {/* Aquí va el contenido de tu portafolio */}
+        {children}
       </div>
     </div>
   );
