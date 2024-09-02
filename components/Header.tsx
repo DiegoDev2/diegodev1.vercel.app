@@ -24,7 +24,7 @@ const Header: React.FC = () => {
           </nav>
         </div>
         
-        {/* Botón de hamburguesa para dispositivos móviles */}
+     
         <button
           className="md:hidden text-gray-300 hover:text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
           {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
         
-        {/* Menú de navegación (para dispositivos móviles) */}
+        
         <nav className={`${
           menuOpen ? 'block' : 'hidden'
           } absolute top-full left-0 w-full bg-neutral-800/90 mt-2 py-4 px-4 space-y-4 text-base sm:text-lg md:text-xl text-gray-300`}>
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           <Link href="/projects" className={isActive('/projects')}>/projects/</Link>
         </nav>
 
-        {/* Íconos de redes sociales (solo visibles en pantallas grandes) */}
+        
         <div className="hidden md:flex md:items-center md:space-x-4 mt-4 md:mt-0">
           <a href="https://x.com/Diegodev5" aria-label="Twitter" className="hover:text-blue-400">
             <FaTwitter size={20} />
