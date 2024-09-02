@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import AnimatedBackground from "@/components/BackgroundAnimated";
 import Header from "@/components/Header";
