@@ -8,6 +8,12 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@layer utilities {
+  .animation-none {
+    animation: none;
+  }
+}
+
 #nprogress .bar {
   background: #1d4ed8; /* bg-blue-500 */
   height: 4px;
