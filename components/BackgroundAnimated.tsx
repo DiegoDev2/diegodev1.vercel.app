@@ -1,33 +1,28 @@
 "use client";
 
-import React, { ReactNode, useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import Particles from "@/components/ui/particles";
 
-interface AnimatedBackgroundProps {
-  children: ReactNode;
-  isAnimating: boolean;
-}
-
-const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({ children, isAnimating }) => {
-  const [animationClass, setAnimationClass] = useState('animate-starAnimation');
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
 
   useEffect(() => {
-    setAnimationClass(isAnimating ? 'animate-starAnimation' : 'animation-none');
-  }, [isAnimating]);
+    setColor(theme === "dark" ? "#ffffff" : "#ffffff"); // Asegura que las partículas sean blancas en modo oscuro
+  }, [theme]);
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
-      <div
-        className={`absolute top-0 left-0 w-full h-full bg-cover bg-repeat ${animationClass}`}
-        style={{ 
-          backgroundImage: "url('/stars.jpg')",
-          backgroundSize: '50%',
-        }}
-      ></div>
-      <div className="relative z-10">
-        {children} {/* Aquí va el contenido de tu portafolio */}
-      </div>
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#030014] ">
+      <Particles
+        className="absolute inset-0 bg-fixed"
+        quantity={300}
+        ease={100}
+        color={color}
+      />
+      <main className="relative z-10 w-full">
+        {children}
+      </main>
     </div>
   );
-};
-
-export default AnimatedBackground;
+}

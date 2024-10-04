@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/gojo.webp" />
       </head>
-      <body className={pixelify_Sans.className}>
+      <body className={inter.className}>
         {children}
       </body>
     </html>

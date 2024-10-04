@@ -6,13 +6,19 @@ import Header from "@/components/Header";
 import Landing from "@/components/Landing";
 import Skills from "@/components/Skills";
 import Work from "@/components/Work";
+import Meteors from "@/components/ui/meteors";
+import Languajes from "@/components/Languajes"
+import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import AnimatedGradientText from "@/components/ui/animated-gradient-text";
 
 const Home: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(true);
 
   return (
-    <AnimatedBackground isAnimating={isAnimating}>
-      <Header setIsAnimating={setIsAnimating} />
+    <AnimatedBackground >
+
+      <Header/>
       <Landing />
       <Skills />
       <Work />

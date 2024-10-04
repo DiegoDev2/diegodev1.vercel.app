@@ -1,41 +1,52 @@
-import { Pixelify_Sans } from "next/font/google";
-import { Inter } from "next/font/google";
-import Image from "next/image";
-const pixelify_Sans = Pixelify_Sans({ subsets: ["latin"] });
-const inter = Inter({ subsets: ["latin"] });
+import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import AnimatedGradientText from "@/components/ui/animated-gradient-text";
+import Languajes from "@/components/Languajes";
 
 export default function Landing() {
   return (
- <div className={`min-h-screen text-white flex flex-col items-center justify-center pt-24 ${inter.className}`}>
-    <div className="">
-      <Image
-        src="/megumi.jpeg" 
-        alt="Avatar"
-        width={736}
-        height={736}
-        className="rounded-full justify-center  md:w-48 md:h-48 lg:w-56 lg:h-56"
-      />
-    </div>
-   
-    <div className="text-center mt-4">
-      <h1 className={`text-3xl md:text-5xl lg:text-5xl font-bold text-blue-500 mt-4 ${pixelify_Sans.className}`}>
-        Howdy! I&apos;m /DiegoDev1/
-      </h1>
-      <h2 className={`text-xl md:text-2xl lg:text-xl mt-2 ${pixelify_Sans.className}`}>
-        Aspiring IT Security Engineer. I am Fifteen years old | Terminal tools developer | Network hacking
-      </h2>
-      <div className="mt-4 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2">
-        <span className="px-4 py-2 bg-neutral-800/90 rounded-full text-sm">He/Him</span>
-        <span className="px-4 py-2 bg-neutral-800/90 rounded-full text-sm">INTJ</span>
+    <div className="relative py-20 h-full w-full flex items-center justify-between px-10 max-sm:flex-col">
+
+      <div className="h-full w-full flex flex-col gap-5 justify-center text-start max-w-[600px]">
+        
+     
+          <AnimatedGradientText className="relative bg-[#1b1828b9] justify-end">
+            <span
+              className={cn(
+                `flex animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
+              )}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="text-[#aa6ebc] mr-[10px] h-5 w-5">
+              <path fillRule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clipRule="evenodd" />
+            </svg>
+              Programming & Cybersecurity Specialist
+            </span>
+           
+          </AnimatedGradientText>
+        
+        {/* Texto principal */}
+        <div className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto">
+          <span className="text-[2rem] md:text-[3.75rem]">
+            Designing tomorrow's experiences
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> today</span>.
+          </span>
+        </div>
+
+        {/* Descripción */}
+        <p className="text-lg text-gray-400 my-5 max-w-[600px]">
+          Experienced developer, acquiring knowledge and new training on a daily basis. Ready to turn an
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> idea</span> into a 
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> reality</span>.
+        </p>
+
+        
       </div>
+
+      {/* Sección de lenguajes */}
+      <div className="languages-section ml-10">
+        <Languajes />
+      </div>
+
     </div>
-    
-    <div className="bg-neutral-800/90 p-4 mt-8 rounded-lg max-w-xs sm:max-w-md lg:max-w-2xl text-center">
-      <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${pixelify_Sans.className}`}>About me</h3>
-      <p className={`mt-2 text-sm md:text-base lg:text-lg font-extralight ${inter.className}`}>
-        I&apos;m a passionate fullstack developer with a deep love for anime and all things tech. My favorite programming language is Go, but I also dive into various other technologies with enthusiasm. I have a strong interest in cybersecurity and ethical hacking, constantly exploring new ways to secure systems and uncover vulnerabilities. When I'm not coding, you can find me engrossed in the latest anime series or experimenting with new security tools. Let's create something amazing together, whether it's crafting secure systems or building powerful applications!
-      </p>
-    </div>
-  </div>
   );
 }

@@ -1,80 +1,55 @@
-"use client";
+import Image from 'next/image';
 
-import React, { useState } from 'react';
-import { usePathname } from 'next/navigation';
-import { FaTwitter, FaDiscord, FaYoutube, FaTwitch, FaBars, FaTimes, FaPause, FaPlay } from 'react-icons/fa';
-import { FiGithub } from 'react-icons/fi';
-import Link from 'next/link';
-
-interface HeaderProps {
-  setIsAnimating: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Header: React.FC<HeaderProps> = ({ setIsAnimating }) => {
-  const currentPath = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isAnimating, setIsAnimatingLocal] = useState(true);
-
-  const isActive = (path: string) => (currentPath === path ? 'text-blue-500' : 'text-gray-300 hover:text-white');
-
-  const toggleAnimation = () => {
-    const newState = !isAnimating;
-    setIsAnimating(newState);
-    setIsAnimatingLocal(newState);
-  };
-
+export default function Header() {
   return (
-    <header className="bg-neutral-800/90 fixed w-full text-white py-4 rounded-2xl mx-auto my-4">
-      <div className="flex flex-wrap items-center justify-between w-full px-4 md:px-8">
-        <div className="flex items-center space-x-4">
-          <p className="text-2xl md:text-3xl">DiegoDev1</p>
-          {/* Menú de navegación en pantalla grande */}
-          <nav className="hidden md:flex space-x-4 text-base sm:text-lg md:text-xl text-gray-300">
-            <a href="/" className={isActive('/')}>/home/</a>
-            <a href="/projects" className={isActive('/projects')}>/projects/</a>
-          </nav>
-        </div>
-        
-       
-        <button
-          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle Menu"
-        >
-          {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-        </button>
-        
-       
-        <nav className={`${
-          menuOpen ? 'block' : 'hidden'
-          } absolute top-full left-0 w-full bg-neutral-800/90 mt-2 py-4 px-4 space-y-4 text-base sm:text-lg md:text-xl text-gray-300`}>
-          <Link href="/" className={isActive('/')}>/home/</Link>
-          <Link href="/projects" className={isActive('/projects')}>/projects/</Link>
-        </nav>
+    <div className="absolute w-full h-screen">
+      <video 
+        autoPlay 
+        muted 
+        loop 
+        className="relative top-[-340px] bg-fixed rotate-180 opacity-65 left-0 w-full h-full z-[0] object-cover"
+      >
+        <source src="/blackhole.webm" type="video/webm" />
+      </video>
 
-      
-        <div className="hidden md:flex md:items-center md:space-x-4 mt-4 md:mt-0">
-          <a href="https://x.com/Diegodev5" aria-label="Twitter" className="hover:text-blue-400">
-            <FaTwitter size={20} />
-          </a>
-          <a href="https://github.com/CodeDiego15" aria-label="GitHub" className="hover:text-gray-500">
-            <FiGithub size={20} />
-          </a>
-          <a href="https://discord.com" aria-label="Discord" className="hover:text-blue-600">
-            <FaDiscord size={20} />
-          </a>
-          <a href="https://www.youtube.com/@DiegoDev2" aria-label="YouTube" className="hover:text-red-600">
-            <FaYoutube size={20} />
-          </a>
-          <a href="https://www.twitch.tv/diego_dev3" aria-label="Twitch" className="hover:text-purple-600">
-            <FaTwitch size={20} />
-          </a>
-          
+      {/* Contenido del header */}
+      <div className="relative z-[2]">
+        <div className="w-full fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-[9999999]">
+          <div className="container mx-auto px-5 md:px-10 relative z-[999999]">
+            <div className="flex justify-between items-center h-16">
+              <a className="flex items-center" href="/">
+                <span className="font-bold ml-2 hidden md:block text-gray-300">DiegoDev1</span>
+              </a>
+
+              <div className="w-full sm:w-[500px] h-full flex flex-row items-center justify-center z-[99999]">
+                {/* Menú móvil */}
+                <div className="w-full relative flex-col flex items-center md:hidden">
+                  <div className="w-[200px] block md:hidden border-t-[#7042f861] border-r-[#7042f861] border-l-[#7042f861] text-center border-b-[#7042f861] bg-[#0300145e] px-4 py-2 text-gray-200 transition-all duration-300 ease-in-out ">
+                    Menu
+                  </div>
+                </div>
+
+                {/* Menú principal centrado */}
+                <div className="hidden gap-x-6 md:flex sm:flex items-center justify-center w-[500px] h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[10px] rounded-full text-gray-200 flex-row">
+                  <a className="cursor-pointer" href="/about">
+                    About me
+                  </a>
+                  <a className="cursor-pointer" href="/experience">
+                    Experience
+                  </a>
+                  <a className="cursor-pointer" href="/projects">
+                    Projects
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-5">
+              
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   );
-};
-
-export default Header;
-
+}

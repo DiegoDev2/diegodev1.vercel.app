@@ -1,113 +1,87 @@
-import React from 'react';
-import { SiHtml5, SiCss3, SiJavascript, SiTypescript, SiAstro, SiTailwindcss, SiCplusplus, SiGo, SiPython, SiMarkdown, SiGit, SiGithub, SiReact, SiNextdotjs, SiBun, SiNodedotjs, SiDocker, SiKubernetes, SiVisualstudiocode, SiMacos, SiKalilinux, SiObsstudio, SiVercel, SiAdobephotoshop } from 'react-icons/si';
-import { BsTerminal } from 'react-icons/bs';
+import { cn } from "@/lib/utils";
+import AnimatedGradientText from "@/components/ui/animated-gradient-text";
 
-const SkillsSection: React.FC = () => {
+const SkillsSection = () => {
   return (
-    <div className="text-white p-10">
-      <h2 className="text-center text-4xl font-bold mb-10">Skills</h2>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        {/* Languages */}
-        <div className="p-6 rounded-lg bg-neutral-800/90">
-          <h3 className="text-xl font-semibold mb-4">Languages</h3>
-          <div className="flex flex-wrap gap-6 items-center">
-            <div className="flex items-center gap-2">
-              <SiHtml5 className="text-red-600" title="HTML" /> <span>HTML</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiCss3 className="text-blue-600" title="CSS" /> <span>CSS</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiJavascript className="text-yellow-500" title="JavaScript" /> <span>JavaScript</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiTypescript className="text-blue-500" title="TypeScript" /> <span>TypeScript</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiCplusplus className="text-blue-800" title="C++" /> <span>C++</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiGo className="text-cyan-500" title="Go" /> <span>Go</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiPython className="text-yellow-400" title="Python" /> <span>Python</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiMarkdown className="text-gray-500" title="Markdown" /> <span>Markdown</span>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <BsTerminal className="text-green-500" title="Shell Script" /> <span>Shell Script</span>
-            </div>
-          </div>
-        </div>
-        
-        {/* Frameworks and Libraries */}
-        <div className="p-6 rounded-lg bg-neutral-800/90">
-          <h3 className="text-xl font-semibold mb-4">Frameworks and Libraries</h3>
-          <div className="flex flex-wrap gap-6 items-center">
-            <div className="flex items-center gap-2">
-              <SiAstro className="text-orange-500" title="Astro" /> <span>Astro</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiBun className="text-amber-100" title="Bun" /> <span>Bun</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiTailwindcss className="text-teal-500" title="Tailwind CSS" /> <span>Tailwind CSS</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiReact className="text-blue-500" title="React" /> <span>React</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiNextdotjs className="text-gray-800" title="Next.js" /> <span>Next.js</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiNodedotjs className="text-green-500" title="Node.js" /> <span>Node.js</span>
-            </div>
-          </div>
-        </div>
-        
-        {/* Tools */}
-        <div className="p-6 rounded-lg bg-neutral-800/90">
-          <h3 className="text-xl font-semibold mb-4">Tools</h3>
-          <div className="flex flex-wrap gap-6 items-center">
-            <div className="flex items-center gap-2">
-              <SiGit className="text-orange-600" title="Git" /> <span>Git</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiGithub className="text-gray-900" title="GitHub" /> <span>GitHub</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiDocker className="text-blue-400" title="Docker" /> <span>Docker</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiKubernetes className="text-blue-600" title="Kubernetes" /> <span>Kubernetes</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiVisualstudiocode className="text-blue-600" title="Visual Studio Code" /> <span>Visual Studio Code</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiMacos className="text-gray-600" title="macOS" /> <span>macOS</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiKalilinux className="text-blue-500" title="Kali Linux" /> <span>Kali Linux</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiObsstudio className="text-black" title="OBS Studio" /> <span>OBS Studio</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiVercel className="text-black" title="Vercel" /> <span>Vercel</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <SiAdobephotoshop className="text-blue-500" title="Photoshop" /> <span>Photoshop</span>
-            </div>
-          </div>
-        </div>
-
+    <section
+      id="skills"
+      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-80 py-20 z-10"
+      style={{ transform: "scale(0.9)" }}
+    >
+      {/* Video de fondo */}
+      <div className="absolute inset-0 z-0">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          className="w-full h-full object-cover opacity-20"
+        >
+          <source src="/Boll.webm" type="video/webm" />
+        </video>
       </div>
-    </div>
+
+      {/* Contenido de la sección */}
+      <div className="relative z-10 w-full h-auto flex flex-col items-center justify-center">
+        <AnimatedGradientText className="bg-[#1b1828b9] justify-end">
+          <span
+            className={cn(
+              `flex animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
+            )}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="text-[#aa6ebc] mr-[10px] h-5 w-5">
+              <path fillRule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clipRule="evenodd" />
+            </svg>
+            Devops & Sec Specialist
+          </span>
+        </AnimatedGradientText>
+        <div className="text-[30px] text-white font-medium mt-[10px] text-center mb-[15px]">
+          My latest skills ready to work
+        </div>
+        <div className="text-[20px] text-gray-200 mb-10 mt-[10px] text-center">
+          Versatile and innovative, my skills are the key to unlocking success in any project.
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center z-10">
+        {[
+          "Python",
+          "Ethical Hacking",
+          "NextJS",
+          "React",
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Tailwind CSS",
+          "Node JS",
+          "Astro",
+          "TypeScript",
+          "Photoshop",
+          "Docker",
+          "Kubernetes",
+          "Bash",
+          "Go",
+          "MacOS",
+          "Kali Linux",
+          "Black Arch",
+          "ParrotSec OS",
+          "C++",
+          "C(Learning)",
+          "Assembly(Learning)",
+          "Git",
+          "GitHub"
+
+
+    
+        ].map((skill) => (
+          <div key={skill} style={{ opacity: 1 }}>
+            <div className=" rounded-xl px-5 py-3 bg-white/10 text-white/80">
+              {skill}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
-}
+};
 
 export default SkillsSection;
