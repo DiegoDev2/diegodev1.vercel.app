@@ -24,25 +24,24 @@ export default function Landing() {
            
           </AnimatedGradientText>
         
-        {/* Texto principal */}
+       
         <div className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto">
           <span className="text-[2rem] md:text-[3.75rem]">
-            Designing tomorrow's experiences
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> today</span>.
+          Building my <br /> future with 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> Code</span>.
           </span>
         </div>
 
-        {/* Descripción */}
+      
         <p className="text-lg text-gray-400 my-5 max-w-[600px]">
-          Experienced developer, acquiring knowledge and new training on a daily basis. Ready to turn an
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> idea</span> into a 
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> reality</span>.
+        I'm DiegoDev. I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">15</span> years old and I present to you my website.
+    
         </p>
 
         
       </div>
 
-      {/* Sección de lenguajes */}
+    
       <div className="languages-section ml-10">
         <Languajes />
       </div>

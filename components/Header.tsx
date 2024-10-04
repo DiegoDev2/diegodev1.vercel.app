@@ -22,7 +22,7 @@ export default function Header() {
               </a>
 
               <div className="w-full sm:w-[500px] h-full flex flex-row items-center justify-center z-[99999]">
-                {/* Menú móvil */}
+              
                 <div className="w-full relative flex-col flex items-center md:hidden">
                   <div className="w-[200px] block md:hidden border-t-[#7042f861] border-r-[#7042f861] border-l-[#7042f861] text-center border-b-[#7042f861] bg-[#0300145e] px-4 py-2 text-gray-200 transition-all duration-300 ease-in-out ">
                     Menu
@@ -34,8 +34,8 @@ export default function Header() {
                   <a className="cursor-pointer" href="/about">
                     About me
                   </a>
-                  <a className="cursor-pointer" href="/experience">
-                    Experience
+                  <a className="cursor-pointer" href="https://github.com/CodeDiego15">
+                    GitHub
                   </a>
                   <a className="cursor-pointer" href="/projects">
                     Projects
