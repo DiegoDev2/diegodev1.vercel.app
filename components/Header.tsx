@@ -13,7 +13,7 @@ export default function Header() {
       </video>
 
       {/* Contenido del header */}
-      <div className="relative z-[2]">
+      <div className="absolute">
         <div className="w-full fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-[9999999]">
           <div className="container mx-auto px-5 md:px-10 relative z-[999999]">
             <div className="flex justify-between items-center h-16">
