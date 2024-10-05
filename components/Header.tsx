@@ -12,9 +12,8 @@ export default function Header() {
         <source src="/blackhole.webm" type="video/webm" />
       </video>
 
-      {/* Contenido del header */}
       <div className="absolute">
-        <div className="w-full fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-[9999999]">
+        <div className="w-full fixed top-0 shadow-lg border-b border-b-zinc-900 bg-[#03001417] backdrop-blur-md z-[9999999]">
           <div className="container mx-auto px-5 md:px-10 relative z-[999999]">
             <div className="flex justify-between items-center h-16">
               <a className="flex items-center" href="/">
@@ -29,15 +28,14 @@ export default function Header() {
                   </div>
                 </div>
 
-                {/* Menú principal centrado */}
                 <div className="hidden gap-x-6 md:flex sm:flex items-center justify-center w-[500px] h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[10px] rounded-full text-gray-200 flex-row">
-                  <a className="cursor-pointer" href="/about">
+                  <a className="cursor-pointer" href="#about-me">
                     About me
                   </a>
                   <a className="cursor-pointer" href="https://github.com/CodeDiego15">
                     GitHub
                   </a>
-                  <a className="cursor-pointer" href="/projects">
+                  <a className="cursor-pointer" href="#projects">
                     Projects
                   </a>
                 </div>

@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#030014] ">
       <Particles
         className="absolute inset-0 bg-fixed"
-        quantity={300}
+        quantity={500}
         ease={100}
         color={color}
       />

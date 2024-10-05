@@ -5,7 +5,7 @@ const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-80 py-20 z-10"
+      className="flex flex-col items-center justify-center h-full relative overflow-hidden pb-80 py-20 z-10"
       style={{ transform: "scale(0.9)" }}
     >
    
@@ -29,7 +29,7 @@ const SkillsSection = () => {
               `flex animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
             )}
           >
-            Devops & Sec Specialist
+            Devops & Sec 
           </span>
         </AnimatedGradientText>
         <div className="text-[30px] text-white font-medium mt-[10px] text-center mb-[15px]">

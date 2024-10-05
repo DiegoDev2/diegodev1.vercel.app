@@ -44,8 +44,8 @@ const ProjectCard = ({
 
 const Projects = () => {
   return (
-    <div className="relative h-full w-full flex flex-col gap-10 px-10 z-[999999]">
-      {/* Fondo de video */}
+    <div id='projects' className="relative h-full w-full flex flex-col gap-10 px-10 z-[999999]">
+     
       <video
         className="absolute top-0 left-0 w-full h-full object-cover -z-10 opacity-20"
         autoPlay
@@ -56,12 +56,12 @@ const Projects = () => {
         Tu navegador no soporta videos.
       </video>
 
-      {/* Texto de My Projects */}
-      <h1 className="text-4xl sm:text-6xl font-bold text-white text-center mt-10">
+  
+      <h1 className="text-4xl sm:text-4xl font-bold text-white text-center mt-10">
         My Projects
       </h1>
 
-      {/* Tarjetas de proyectos */}
+  
       <div className="flex flex-col gap-10 z-[999999]">
         <ProjectCard
           title="psicologo.ai"
