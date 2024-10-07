@@ -32,7 +32,7 @@ export default function Header() {
                   <a className="cursor-pointer" href="#about-me">
                     About me
                   </a>
-                  <a className="cursor-pointer" href="https://github.com/CodeDiego15">
+                  <a className="cursor-pointer" href="https://github.com/DiegoDev2">
                     GitHub
                   </a>
                   <a className="cursor-pointer" href="#projects">
