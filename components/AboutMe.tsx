@@ -14,7 +14,7 @@ export default function AboutMe() {
           <div className="[&>p]:mb-4 [&>p>strong]:text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 [&>p>strong]:font-extrabold text-pretty order-2 md:order-1">
             <p className="text-xl text-white">
               My name is Diego, but within the community, I'm known as diegodev. At <NumberTicker value={14}/> years old, I had the opportunity to join the world of programming
-              in late <NumberTicker value={2023} decimalPlaces={false}/> Since then, I have dedicated much of my time to{" "}
+              in late <NumberTicker value={2023}/> Since then, I have dedicated much of my time to{" "}
               <strong>developing my skills</strong> by collaborating on personal projects
               and working with large companies such as Google.
             </p>
