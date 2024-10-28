@@ -67,7 +67,7 @@ const Projects = () => {
           title="psicologo.ai"
           description="🧠 Psicologe AI in Term."
           tags={['API', 'AI', 'TERMINAL']}
-          link="https://github.com/CodeDiego15/psicologo.ai"
+          link="https://github.com/DiegoDev2/psicologo.ai"
           imageUrl="ai.png"
         />
         <ProjectCard
@@ -88,7 +88,7 @@ const Projects = () => {
           title="All projects"
           description="📍 All my projects in GitHub"
           tags={['DiegoDev1', 'GitHub', 'Public']}
-          link="/projects"
+          link="https://github.com/DiegoDev2"
           imageUrl="/GitHub.png"
         />
       </div>
