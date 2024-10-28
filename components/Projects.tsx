@@ -78,6 +78,13 @@ const Projects = () => {
           imageUrl="/Torque3D.png"
         />
         <ProjectCard
+          title="Fleet"
+          description="📍 Fleet is a package manager with a focus on performance and functionality."
+          tags={['Go', 'Package Manager', 'Public', 'OS']}
+          link="https://fleetpkg.vercel.app"
+          imageUrl="/Fleet.png"
+        />
+         <ProjectCard
           title="All projects"
           description="📍 All my projects in GitHub"
           tags={['DiegoDev1', 'GitHub', 'Public']}

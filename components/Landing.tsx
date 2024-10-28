@@ -6,6 +6,8 @@ import Languajes from "@/components/Languajes";
 
 export default function Landing() {
   return (
+
+
     <div className="relative py-10 h-full w-full flex items-center justify-between px-10 max-sm:flex-col xl:text-7xl">
 
       <div className="h-full w-full flex flex-col gap-5 justify-center text-start max-w-[600px]">
