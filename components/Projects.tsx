@@ -82,7 +82,7 @@ const Projects = () => {
           description="📍 Fleet is a package manager with a focus on performance and functionality."
           tags={['Go', 'Package Manager', 'Public', 'OS']}
           link="https://fleetpkg.vercel.app"
-          imageUrl="/Fleet.png"
+          imageUrl="/FleetRefactor.png"
         />
          <ProjectCard
           title="All projects"
