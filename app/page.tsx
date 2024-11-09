@@ -11,8 +11,9 @@ import Languajes from "@/components/Languajes"
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@/components/ui/animated-gradient-text";
-import ProjectSection from '@/components/Projects';
+import Projects from '@/components/Projects';
 import AboutMe from '@/components/AboutMe';
+import SocialSection from '@/components/Socials';
 
 const Home: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(true);
@@ -22,7 +23,9 @@ const Home: React.FC = () => {
 
       <Header/>
       <Landing />
+      <Projects />
       <SkillsSection /> 
+      <SocialSection />
     </AnimatedBackground>
   );
 };

@@ -21,7 +21,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     
       <main className="relative z-10 flex flex-col items-center justify-center">
         {children}
+        
       </main>
+      
     </div>
   );
 }

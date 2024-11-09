@@ -20,7 +20,7 @@ export function SkillsSection() {
   ];
 
   return (
-    <section className="p-10 text-white">
+    <section id='skills' className="p-10 text-white">
       <p className=" text-xl text-center text-neutral-500 font-normal mb-6 tracking-wide">✦ MY STACK ✦</p>
       <h2 className="text-4xl font-normal text-center mb-6">Skills I Work With</h2>
 

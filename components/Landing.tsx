@@ -4,11 +4,11 @@ import ContactButton from "./ui/contac-botom";
 
 export default function Landing() {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen text-white">
+    <div id="home" className="relative flex flex-col items-center justify-center min-h-screen text-white">
       
       <div className="relative z-10 flex flex-col items-center text-center gap-6 pt-20">
         <p className="text-gray-300 font-extralight text-lg">
-          Hello 👋🏻! I'm DiegoDev1, a Software Developer
+          Hello 👋🏻! I'm DiegoDev1, a Software Developer. 15 years old.
         </p>
         
         <h1 className="text-5xl font-normal leading-tight">
