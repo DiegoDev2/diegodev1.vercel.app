@@ -21,7 +21,9 @@ export function SkillsSection() {
 
   return (
     <section className="p-10 text-white">
-      <h2 className="text-4xl font-normal mb-6">My Skilss</h2>
+      <p className=" text-xl text-center text-neutral-500 font-normal mb-6 tracking-wide">✦ MY STACK ✦</p>
+      <h2 className="text-4xl font-normal text-center mb-6">Skills I Work With</h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {tools.map((tool) => (
           <div key={tool.name} className="flex items-center space-x-4 p-4 border border-neutral-800 bg-[#1a1a1a] bg-opacity-70 backdrop-blur-lg rounded-2xl">
