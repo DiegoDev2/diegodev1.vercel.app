@@ -15,7 +15,7 @@ export function SkillsSection() {
     { name: "TailwindCSS", description: "Styling Framework", imageSrc: "./skills/tailwind.svg" },
     { name: "HTML5", description: "Markup Language", imageSrc: "./skills/html.svg" },
     { name: "Docker", description: "Containerization", imageSrc: "./skills/docker.svg" },
-    { name: "Kubernetes", description: "Container Orchestration", imageSrc: "./companies/kubernetes.svg" },
+    { name: "Kubernetes", description: "Container Orchestration", imageSrc: "./skills/kubernetes.svg" },
 
   ];
 
