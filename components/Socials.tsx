@@ -15,6 +15,7 @@ export default function SocialSection() {
         height={1080}
         className="absolute bottom-0 left-0 w-full h-full object-cover opacity-80 rotate-180 z-0"
         style={{ objectPosition: 'bottom' }}
+        unoptimized
       />
       
       {/* Contenido */}
