@@ -1,82 +1,38 @@
-import { cn } from "@/lib/utils";
-import AnimatedGradientText from "@/components/ui/animated-gradient-text";
+import Image from 'next/image';
 
-const SkillsSection = () => {
+export function SkillsSection() {
+  const tools = [
+    { name: "Go", description: "Programming Language", imageSrc: "./skills/go.svg" },
+    { name: "C++", description: "Programming Language", imageSrc: "./skills/cpp.png" },
+    { name: "C", description: "Programming Language", imageSrc: "./skills/c.svg" },
+    { name: "CSS3", description: "Styling Language", imageSrc: "./skills/css.svg" },
+    { name: "Figma", description: "Design Tool", imageSrc: "./skills/figma.svg" },
+    { name: "GitHub", description: "Version Control", imageSrc: "./skills/github.svg" },
+    { name: "Nextjs", description: "React framework", imageSrc: "/skills/nextjs.svg" },
+    { name: "Nestjs", description: "Node.js framework", imageSrc: "/skills/nest.svg" },
+    { name: "JS", description: "Programming Language", imageSrc: "./skills/js.svg" },
+    { name: "TS", description: "Programming Language", imageSrc: "./skills/ts.svg" },
+    { name: "TailwindCSS", description: "Styling Framework", imageSrc: "./skills/tailwind.svg" },
+    { name: "HTML5", description: "Markup Language", imageSrc: "./skills/html.svg" },
+    { name: "Docker", description: "Containerization", imageSrc: "./skills/docker.svg" },
+    { name: "Kubernetes", description: "Container Orchestration", imageSrc: "./companies/kubernetes.svg" },
+
+  ];
+
   return (
-    <section
-      id="skills"
-      className="flex flex-col items-center justify-center h-full relative overflow-hidden pb-80 py-20 z-10"
-      style={{ transform: "scale(0.9)" }}
-    >
-   
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          preload="none" 
-          className="w-full h-full object-cover opacity-20"
-        >
-          <source src="/Boll.webm" type="video/webm" />
-        </video>
-      </div>
-
-   
-      <div className="relative z-10 w-full h-auto flex flex-col items-center justify-center">
-        <AnimatedGradientText className="bg-[#1b1828b9] justify-end">
-          <span
-            className={cn(
-              `flex animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
-            )}
-          >
-            Devops & Sec 
-          </span>
-        </AnimatedGradientText>
-        <div className="text-[30px] text-white font-medium mt-[10px] text-center mb-[15px]">
-          My latest skills ready to work
-        </div>
-        <div className="text-[20px] text-gray-200 mb-10 mt-[10px] text-center">
-          Versatile and innovative, my skills are the key to unlocking success in any project.
-        </div>
-      </div>
-
-      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center z-10">
-        {[
-          "Python",
-          "Ethical Hacking",
-          "NextJS",
-          "React",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Tailwind CSS",
-          "Node JS",
-          "Astro",
-          "TypeScript",
-          "Photoshop",
-          "Docker",
-          "Kubernetes",
-          "Bash",
-          "Go",
-          "MacOS",
-          "Kali Linux",
-          "Black Arch",
-          "ParrotSec OS",
-          "C++",
-          "C(Learning)",
-          "Assembly(Learning)",
-          "Git",
-          "GitHub"
-        ].map((skill) => (
-          <div key={skill} style={{ opacity: 1 }}>
-            <div className="rounded-xl px-5 py-3 text-white border border-[#7042f861] bg-[#0300145e]">
-              {skill}
+    <section className="p-10 text-white">
+      <h2 className="text-4xl font-normal mb-6">My Skilss</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tools.map((tool) => (
+          <div key={tool.name} className="flex items-center space-x-4 p-4 border border-neutral-800 bg-[#1a1a1a] bg-opacity-70 backdrop-blur-lg rounded-2xl">
+            <Image src={tool.imageSrc} alt={tool.name} width={40} height={40} className="rounded" unoptimized/>
+            <div>
+              <h3 className="text-lg font-semibold">{tool.name}</h3>
+              <p className="text-gray-400 text-sm">{tool.description}</p>
             </div>
           </div>
         ))}
       </div>
     </section>
   );
-};
-
-export default SkillsSection;
+}

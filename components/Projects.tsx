@@ -85,6 +85,13 @@ const Projects = () => {
           imageUrl="/FleetRefactor.png"
         />
          <ProjectCard
+          title="Vaulty"
+          description="Effortless Security for Developers' Credentials."
+          tags={['Go', 'Cryptography', 'DB']}
+          link="https://vaultyy.vercel.app"
+          imageUrl="/Vaulty.png"
+        />
+        <ProjectCard
           title="All projects"
           description="📍 All my projects in GitHub"
           tags={['DiegoDev1', 'GitHub', 'Public']}

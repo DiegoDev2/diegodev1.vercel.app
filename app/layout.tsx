@@ -1,11 +1,10 @@
 // app/layout.tsx
-import { Pixelify_Sans } from "next/font/google";
-import { Inter } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 
-
-const pixelify_Sans = Pixelify_Sans({ subsets: ["latin"] });
-const inter = Inter({ subsets: ["latin"] });
+const noto_sans = Noto_Sans({ subsets: ["latin"] });
+const inter = Inter_Tight({ subsets: ["latin"] });
 
 export const metadata = {
   title: "DiegoDev1",

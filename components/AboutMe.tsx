@@ -15,11 +15,10 @@ export default function AboutMe() {
             <p className="text-xl text-white">
               My name is Diego, but within the community, I'm known as diegodev. At <NumberTicker value={14}/> years old, I had the opportunity to join the world of programming
               in late <NumberTicker value={2023}/> Since then, I have dedicated much of my time to{" "}
-              <strong>developing my skills</strong> by collaborating on personal projects
-              and working with large companies such as Google.
+              <strong>developing my skills</strong> by collaborating on large projects for companies like Google.
             </p>
             <p className="text-xl text-white">
-              I am passionate about technology, particularly in areas like{" "}
+               particularly in areas like{" "}
               <strong>
                 cybersecurity, ethical hacking, DevOps, and software development
               </strong>

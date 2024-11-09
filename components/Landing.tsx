@@ -1,54 +1,35 @@
 import { ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-import AnimatedGradientText from "@/components/ui/animated-gradient-text";
-import Languajes from "@/components/Languajes";
-
+import Image from "next/image";
+import ContactButton from "./ui/contac-botom";
 
 export default function Landing() {
   return (
-
-
-    <div className="relative py-10 h-full w-full flex items-center justify-between px-10 max-sm:flex-col xl:text-7xl">
-
-      <div className="h-full w-full flex flex-col gap-5 justify-center text-start max-w-[600px]">
-        
-     
-          <AnimatedGradientText className="relative bg-[#1b1828b9] justify-end">
-            <span
-              className={cn(
-                `flex animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
-              )}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="text-[#aa6ebc] mr-[10px] h-5 w-5">
-              <path fillRule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clipRule="evenodd" />
-            </svg>
-              Programming & Cybersecurity
-            </span>
-           
-          </AnimatedGradientText>
-        
-       
-        <div className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto">
-          <span className="text-[2rem] md:text-[3.75rem]">
-          Building my <br /> future with 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> Code</span>.
-          </span>
-        </div>
-
+    <div className="relative flex flex-col items-center justify-center min-h-screen text-white">
       
-        <p className="text-lg text-gray-400 my-5 max-w-[600px]">
-        I'm DiegoDev. I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">15</span> years old and I present to you my website.
-    
+      <div className="relative z-10 flex flex-col items-center text-center gap-6 pt-20">
+        <p className="text-gray-300 font-extralight text-lg">
+          Hello 👋🏻! I'm DiegoDev1, a Software Developer
         </p>
-       
         
+        <h1 className="text-5xl font-normal leading-tight">
+          Designing with <span className="italic" style={{fontFamily: "Noto Sans"}}>Precision</span>, <br />  Delivering with <span className="italic" style={{fontFamily: "Noto Sans"}}>Impact</span>.
+        </h1>
+        
+        <ContactButton />
+        <p className="text-gray-300 font-extralight text-lg py-3">
+        where I have collaborated
+        </p>
+        <div className="flex flex-wrap gap-20 justify-center">
+          <Image src="/companies/Google.svg" alt="Google" width={40} height={40} />
+          <Image src="/companies/Microsoft.svg" alt="Microsoft" width={40} height={40} />
+          <Image src="/companies/Kubernetes.svg" alt="Kubernetes" width={40} height={40} />
+          <Image src="/companies/v-logo.svg" alt="V" width={40} height={40} />
+          <Image src="/companies/CorpRangel.png" alt="CorpRangel" width={40} height={40} />
+          <Image src="/companies/VaultyWhite.png" alt="Vaulty" width={110} height={110} />
+  
+        </div>
       </div>
-
-    
-      <div className="languages-section ml-10">
-        <Languajes />
-      </div>
-
     </div>
   );
 }
+

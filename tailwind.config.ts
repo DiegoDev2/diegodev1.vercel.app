@@ -18,6 +18,14 @@ const config: Config = {
   					backgroundPosition: '10000px 5000px'
   				}
   			},
+  			'infinite-scroll': {
+  				from: {
+  					transform: 'translateX(0)'
+  				},
+  				to: {
+  					transform: 'translateX(-100%)'
+  				}
+  			},
   			gradient: {
   				to: {
   					backgroundPosition: 'var(--bg-size) 0'
@@ -49,6 +57,14 @@ const config: Config = {
   				'100%': {
   					transform: 'translateZ(0) rotate(360deg)'
   				}
+  			},
+  			orbit: {
+  				'0%': {
+  					transform: 'rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)'
+  				},
+  				'100%': {
+  					transform: 'rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)'
+  				}
   			}
   		},
   		animation: {
@@ -57,7 +73,9 @@ const config: Config = {
   			gradient: 'gradient 8s linear infinite',
   			rainbow: 'rainbow var(--speed, 2s) infinite linear',
   			'shimmer-slide': 'shimmer-slide var(--speed) ease-in-out infinite alternate',
-  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear'
+  			'spin-around': 'spin-around calc(var(--speed) * 2) infinite linear',
+  			'infinite-scroll': 'infinite-scroll 25s linear infinite',
+  			orbit: 'orbit calc(var(--duration)*1s) linear infinite'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

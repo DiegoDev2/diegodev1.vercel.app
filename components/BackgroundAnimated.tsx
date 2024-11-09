@@ -1,26 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
+
+import Image from "next/image";
+import { Fullscreen } from "lucide-react";
 import Particles from "@/components/ui/particles";
-
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
-  const [color, setColor] = useState("#ffffff");
-
-  useEffect(() => {
-    setColor(theme === "dark" ? "#ffffff" : "#ffffff"); // Asegura que las partículas sean blancas en modo oscuro
-  }, [theme]);
-
   return (
-    <div className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#030014] ">
-      <Particles
-        className="absolute inset-0 bg-fixed"
-        quantity={500}
-        ease={100}
-        color={color}
+    <div className="relative flex flex-col items-center justify-center bg-[#000000]">
+      <Particles 
+      size={0.001}
+      quantity={50}
+      className="absolute h-[1000px] top-0 left-0 w-full" />
+      <Image
+        src="/Background.png"
+        alt="background"
+        width={1920} 
+        height={1080}
+        className="absolute top-0 w-full h-[130vh] opacity-50 object-cover"
       />
-      <main className="relative z-10 w-full">
+    
+      <main className="relative z-10 flex flex-col items-center justify-center">
         {children}
       </main>
     </div>
