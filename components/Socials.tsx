@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Particles from '@/components/ui/particles';
 export default function SocialSection() {
   return (
-    <section className="relative flex items-center justify-center h-[600px] w-full text-center">
+    <section id='socials' className="relative flex items-center justify-center h-[600px] w-full text-center">
         <Particles 
       size={0.001}
       quantity={50}
@@ -13,18 +13,16 @@ export default function SocialSection() {
         alt="Bonus Step"
         width={1920}
         height={1080}
-        className="absolute bottom-0 left-0 w-full h-full object-cover opacity-80 rotate-180 z-0"
+        className="absolute bottom-0 left-0 w-screen h-full object-cover opacity-70 rotate-180 z-0"
         style={{ objectPosition: 'bottom' }}
         unoptimized
       />
       
-      {/* Contenido */}
       <div className="relative z-10 flex flex-col items-center gap-8">
         <h1 className="text-5xl text-white font-normal leading-tight">
           Let's <span className="italic" style={{ fontFamily: "Noto Sans" }}>Create</span>, <br />your next big idea!
         </h1>
         
-        {/* Íconos de redes sociales */}
         <div className="flex gap-10">
           <a
             href="https://instagram.com/diegodev1.go"
