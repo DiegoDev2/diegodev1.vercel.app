@@ -1,70 +1,84 @@
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+"use client";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
-  const [activeSection, setActiveSection] = useState('#home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['#home', '#projects', '#skills', '#socials'];
-      let currentSection = activeSection;
-
-      for (let i = 0; i < sections.length; i++) {
-        const sectionElement = document.querySelector(sections[i]);
-        if (sectionElement) {
-          const rect = sectionElement.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-            currentSection = sections[i];
-            break;
-          }
-        }
-      }
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]);
+  // Alternar menú
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-[100%] max-w-[1100px] border border-neutral-800 bg-[#1a1a1a] bg-opacity-70 backdrop-blur-lg rounded-3xl px-8 py-3 shadow-md flex justify-between items-center">
-      <div className="flex items-center">
-        <Image
-          src="/LOGOJAP.png"
-          alt="Logo"
-          width={100}
-          height={100}
-          className="rounded-lg hidden sm:block"
-        />
+    <header className="fixed top-0 left-0 w-full z-50 border-b border-b-neutral-800 bg-black ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-5">
+
+        <div className="text-white font-mono text-lg">
+          <a href="/">DiegoDev1</a>
+        </div>
+
+
+        <nav className="hidden md:flex space-x-6">
+          <a
+            href="#work"
+            className="text-neutral-300 font-thin hover:text-gray-300 hover:underline text-sm transition-colors duration-300"
+          >
+            Work
+          </a>
+          <a
+            href="https://github.com/DiegoDev2"
+            className="text-neutral-300 font-thin hover:text-gray-300 hover:underline text-sm transition-colors duration-300"
+          >
+            GitHub
+          </a>
+          <a
+            href="mailto:diegodev2.proton.me"
+            className="text-gray-300 font-thin hover:underline text-sm transition-colors duration-300"
+          >
+            Start a project →
+          </a>
+        </nav>
+
+
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={toggleMenu}
+            className="text-gray-300 hover:text-white focus:outline-none transition-transform duration-300"
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
-      <nav className="flex gap-10 font-extralight text-base text-gray-400">
-        {[
-          { href: '#home', label: 'Home' },
-          { href: '#projects', label: 'Projects' },
-          { href: '#skills', label: 'Skills' },
-          { href: '#socials', label: 'Socials' },
-        ].map(({ href, label }) => (
+
+      <div
+        className={`${
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        } md:hidden overflow-hidden transition-all duration-500 bg-black bg-opacity-95`}
+      >
+        <nav className="flex flex-col items-center space-y-6 py-6">
           <a
-            key={href}
-            href={href}
-            className={`relative group px-4 py-2 rounded-3xl transition-colors ${
-              activeSection === href
-                ? 'bg-neutral-700 text-white'
-                : 'hover:bg-neutral-700 hover:text-white'
-            }`}
+            href="#work"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-neutral-300 hover:text-white text-lg font-thin transition-colors duration-300"
           >
-            <span>{label}</span>
-            <div
-              className={`absolute top-[-10px] sm:top-[-19px] left-1/2 transform -translate-x-1/2 w-[40px] h-[4px] bg-white shadow-[0_0_10px_#ffffff] transition-all ${
-                activeSection === href
-                  ? 'opacity-100'
-                  : 'opacity-0 group-hover:opacity-100'
-              }`}
-            ></div>
+            Work
           </a>
-        ))}
-      </nav>
+          <a
+            href="#linkedin"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-neutral-300 hover:text-white text-lg font-thin transition-colors duration-300"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="#start"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-neutral-300 hover:text-white text-lg font-thin transition-colors duration-300"
+          >
+            Start a project →
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }

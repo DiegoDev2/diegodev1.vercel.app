@@ -1,35 +1,61 @@
-import { ChevronRight } from "lucide-react";
-import Image from "next/image";
-import ContactButton from "./ui/contac-botom";
+import { useEffect } from "react";
+import ContactButton from "@/components/ui/contact-botton";
+import { Workflow, Terminal, Container, Rocket } from "lucide-react";
 
 export default function Landing() {
+  useEffect(() => {
+    // Activamos el fade-in cuando la página se cargue
+    const elements = document.querySelectorAll(".fade-in");
+    
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        element.classList.add("opacity-100", "transition-opacity", "duration-1000");
+      }, index * 300); // Cada elemento aparece con un retraso
+    });
+  }, []);
+
   return (
-    <div id="home" className="relative flex flex-col items-center justify-center min-h-screen text-white">
-      
-      <div className="relative z-10 flex flex-col items-center text-center gap-6 pt-20">
-        <p className="text-gray-300 font-extralight text-lg">
-          Hello 👋🏻! I'm DiegoDev1, a Software Developer. 15 years old.
+    <div
+      id="home"
+      className="relative flex flex-col items-center sm:items-start justify-center min-h-screen px-6 sm:px-12 text-white z-20"
+    >
+      {/* Contenido de Texto */}
+      <div className="relative z-10 flex flex-col text-center sm:text-left gap-4 sm:gap-6">
+        {/* Subtítulo */}
+        <p
+          className="text-gray-200 font-light text-sm sm:text-base opacity-0 fade-in"
+        >
+          Hi, I'm DiegoDev1, 15 years old.
         </p>
-        
-        <h1 className="text-5xl font-normal leading-tight">
-          Designing with <span className="italic" style={{fontFamily: "Noto Sans"}}>Precision</span>, <br />  Delivering with <span className="italic" style={{fontFamily: "Noto Sans"}}>Impact</span>.
+
+        <h1
+          className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-snug sm:leading-tight opacity-0 fade-in"
+        >
+          Building Scalable DevOps Solutions <br />
+          <span className="block mt-2">and Modern Web Applications</span>
         </h1>
-        
-        <ContactButton />
-        <p className="text-gray-300 font-extralight text-lg py-3">
-        where I have collaborated
-        </p>
-        <div className="flex flex-wrap gap-20 justify-center">
-          <Image src="/companies/Google.svg" alt="Google" width={40} height={40} />
-          <Image src="/companies/Microsoft.svg" alt="Microsoft" width={40} height={40} />
-          <Image src="/companies/Kubernetes.svg" alt="Kubernetes" width={40} height={40} />
-          <Image src="/companies/v-logo.svg" alt="V" width={40} height={40} />
-          <Image src="/companies/CorpRangel.png" alt="CorpRangel" width={40} height={40} />
-          <Image src="/companies/VaultyWhite.png" alt="Vaulty" width={110} height={110} />
-  
+
+        {/* Tags Responsivos */}
+        <div className="flex flex-wrap justify-center sm:justify-start gap-4 text-gray-200 text-sm font-light py-2">
+          <span className="flex items-center gap-1 opacity-0 fade-in">
+            <Rocket className="text-blue-400 w-5 h-5" /> Automation
+          </span>
+          <span className="flex items-center gap-1 opacity-0 fade-in">
+            <Terminal className="text-blue-400 w-5 h-5" /> Web Development
+          </span>
+          <span className="flex items-center gap-1 opacity-0 fade-in">
+            <Workflow className="text-blue-400 w-5 h-5" /> CI/CD Pipelines
+          </span>
+          <span className="flex items-center gap-1 opacity-0 fade-in">
+            <Container className="text-blue-400 w-5 h-5" /> Cloud Infrastructure
+          </span>
+        </div>
+
+        {/* Botón de Contacto */}
+        <div className="mt-4 sm:mt-6 mx-auto sm:mx-0 opacity-0 fade-in">
+          <ContactButton />
         </div>
       </div>
     </div>
   );
 }
-
