@@ -1,8 +1,5 @@
-// app/layout.tsx
-import { Noto_Sans } from "next/font/google";
-import { Inter_Tight } from "next/font/google";
-import { Space_Mono } from "next/font/google";
 import { JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 
@@ -26,6 +23,7 @@ export default function RootLayout({
       </head>
       <body className={jet.className}>
         {children}
+        <Analytics />:
       </body>
     </html>
   );
