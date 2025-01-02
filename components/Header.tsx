@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Geist_Mono } from "next/font/google";
 const geist = Geist_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -36,9 +37,9 @@ export default function Header() {
           <div className="px-28">
             <a
               href="#start"
-              className={`px-5 py-2 bg-gray-200 text-black text-sm font-light rounded-xl hover:bg-gray-300 transition-all ${geist.className}`}
+              className={`flex gap-x-2 items-center px-5 py-2 bg-gray-200 text-black text-sm font-light rounded-xl hover:bg-gray-300 transition-all ${geist.className}`}
             >
-              START  NOW 
+              START  NOW <Image src="/ui/svg/arrow-top.svg" width={20} height={20} alt={""} />
             </a>
           </div>
          
