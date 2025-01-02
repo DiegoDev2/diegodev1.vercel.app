@@ -9,13 +9,14 @@ import AboutMe from '@/components/AboutMe';
 
 
 
+
 const Home: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(true);
 
   return (
 
     <AnimatedBackground >
-      
+      <section className="section-down blur-progressive"></section>
       <Header/>
       <Landing />
       <Projects />
