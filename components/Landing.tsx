@@ -1,61 +1,43 @@
-import { useEffect } from "react";
-import ContactButton from "@/components/ui/contact-botton";
-import { Workflow, Terminal, Container, Rocket } from "lucide-react";
+import Image from "next/image";
+import { Geist_Mono } from "next/font/google";
+const geist = Geist_Mono({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export default function Landing() {
-  useEffect(() => {
-    // Activamos el fade-in cuando la página se cargue
-    const elements = document.querySelectorAll(".fade-in");
-    
-    elements.forEach((element, index) => {
-      setTimeout(() => {
-        element.classList.add("opacity-100", "transition-opacity", "duration-1000");
-      }, index * 300); // Cada elemento aparece con un retraso
-    });
-  }, []);
-
   return (
     <div
       id="home"
-      className="relative flex flex-col items-center sm:items-start justify-center min-h-screen px-6 sm:px-12 text-white z-20"
+      className="relative flex flex-col items-center justify-center min-h-screen text-white z-20 py-12"
     >
-      {/* Contenido de Texto */}
-      <div className="relative z-10 flex flex-col text-center sm:text-left gap-4 sm:gap-6">
-        {/* Subtítulo */}
-        <p
-          className="text-gray-200 font-light text-sm sm:text-base opacity-0 fade-in"
-        >
-          Hi, I'm DiegoDev1, 15 years old.
-        </p>
+      <div className="relative text-center z-10 flex flex-col items-center gap-4 sm:gap-6 mt-8">
 
-        <h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-snug sm:leading-tight opacity-0 fade-in"
-        >
-          Building Scalable DevOps Solutions <br />
-          <span className="block mt-2">and Modern Web Applications</span>
+        <button className={`relative flex items-center px-4 py-2 text-sm font-light text-white bg-neutral-900 shadow-inner shadow-neutral-700 hover:shadow-neutral-600 rounded-xl  transition w-auto ${geist.className}`}>
+          <div className="relative flex items-center justify-center w-4 h-4 mr-2">
+            <span className="absolute inline-block w-2 h-2 -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-green-500 left-1/2 top-1/2"></span>
+            <span className="absolute inline-block w-4 h-4 animate-ping rounded-full bg-green-500"></span>
+          </div>
+          BOOKING Q1-2025
+        </button>
+
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal">
+        Building DevOps Solutions <br /> and Modern Web Pages
         </h1>
-
-        {/* Tags Responsivos */}
-        <div className="flex flex-wrap justify-center sm:justify-start gap-4 text-gray-200 text-sm font-light py-2">
-          <span className="flex items-center gap-1 opacity-0 fade-in">
-            <Rocket className="text-blue-400 w-5 h-5" /> Automation
-          </span>
-          <span className="flex items-center gap-1 opacity-0 fade-in">
-            <Terminal className="text-blue-400 w-5 h-5" /> Web Development
-          </span>
-          <span className="flex items-center gap-1 opacity-0 fade-in">
-            <Workflow className="text-blue-400 w-5 h-5" /> CI/CD Pipelines
-          </span>
-          <span className="flex items-center gap-1 opacity-0 fade-in">
-            <Container className="text-blue-400 w-5 h-5" /> Cloud Infrastructure
-          </span>
-        </div>
-
-        {/* Botón de Contacto */}
-        <div className="mt-4 sm:mt-6 mx-auto sm:mx-0 opacity-0 fade-in">
-          <ContactButton />
-        </div>
+        <p className=" text-xs font-extralight sm:text-base md:text-lg text-gray-300">
+        Specialized in DevOps workflows, cutting-edge front-end development, <br />
+         and custom CLI tools for efficient, high-performance projects.
+        </p>
       </div>
+
+      <Image
+        src="/ui/hands.webp"
+        width={800}
+        height={800}
+        className="w-full"
+        alt=""
+        unoptimized
+      />
     </div>
   );
 }
