@@ -12,7 +12,7 @@ const ThingsSection: React.FC = () => {
     <section className="flex justify-center items-center py-16 px-6 md:px-52">
       <div className="max-w-6xl">
         <p className={`text-lime-400 font-extralight text-sm mb-4 ${geist.className}`}>
-          // THINGS I DO
+          <span>// THINGS I DO</span>
         </p>
         <h2 className="text-4xl font-normal mb-4 text-white">
           The things that make me sleep late.
@@ -21,7 +21,6 @@ const ThingsSection: React.FC = () => {
           I'm 15yo and I started a year ago, I specialize in these things
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-  
           <div className="p-6 rounded-lg shadow-md">
             <div className="text-lime-400 mb-4">
               <span className="text-2xl">
@@ -36,7 +35,6 @@ const ThingsSection: React.FC = () => {
             </p>
           </div>
 
- 
           <div className="p-6 rounded-lg shadow-md">
             <div className="text-lime-400 mb-4">
               <span className="text-2xl">
