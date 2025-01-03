@@ -1,6 +1,3 @@
-"use client";
-import React, { useState } from 'react';
-
 import Header from "@/components/Header";
 import Landing from "@/components/Landing";
 import ThingsSection from '@/components/Things';
@@ -8,7 +5,7 @@ import ThingsSection from '@/components/Things';
 
 
 
-const Home: React.FC = () => {
+export default function Home() {
   return (
     <>
       <section className="section-down blur-progressive"></section>
@@ -19,4 +16,4 @@ const Home: React.FC = () => {
     </>
   );
 };
-export default Home;
+

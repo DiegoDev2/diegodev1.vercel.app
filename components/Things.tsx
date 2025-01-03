@@ -1,4 +1,3 @@
-import React from "react";
 import { Geist_Mono } from "next/font/google";
 import { Cloud, Code, Monitor, RefreshCw } from "lucide-react";
 
@@ -7,12 +6,12 @@ const geist = Geist_Mono({
   subsets: ["latin"],
 });
 
-const ThingsSection: React.FC = () => {
+export default function ThingsSection() {
   return (
     <section className="flex justify-center items-center py-16 px-6 md:px-52">
       <div className="max-w-6xl">
         <p className={`text-lime-400 font-extralight text-sm mb-4 ${geist.className}`}>
-          <span>// THINGS I DO</span>
+           { '// THINGS I DO' } 
         </p>
         <h2 className="text-4xl font-normal mb-4 text-white">
           The things that make me sleep late.
@@ -82,4 +81,3 @@ const ThingsSection: React.FC = () => {
   );
 };
 
-export default ThingsSection;
