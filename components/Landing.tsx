@@ -8,7 +8,7 @@ export default function Landing() {
   return (
     <div
       id="home"
-      className="relative flex flex-col items-center justify-center min-h-screen text-white z-20 py-10"
+      className="relative flex flex-col items-center justify-center min-h-screen text-white z-20 py-12"
     >
       <div className="relative text-center z-10 flex flex-col items-center gap-4 sm:gap-6 mt-8">
 
@@ -20,10 +20,10 @@ export default function Landing() {
           BOOKING Q1-2025
         </button>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal">
         Building DevOps Solutions <br /> and Modern Web Pages
         </h1>
-        <p className="text-sm font-extralight sm:text-base md:text-lg text-gray-300">
+        <p className=" text-xs font-extralight sm:text-base md:text-lg text-gray-300">
         Specialized in DevOps workflows, cutting-edge front-end development, <br />
          and custom CLI tools for efficient, high-performance projects.
         </p>

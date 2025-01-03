@@ -1,194 +1,89 @@
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from "react";
+import { Geist_Mono } from "next/font/google";
+import { Cloud, Code, Monitor, RefreshCw } from "lucide-react";
 
-const StickySection = () => {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+const geist = Geist_Mono({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
-
-  const projectDetails: { [key: string]: { title: string; description: string; status: string; link?: string; logo?: string } } = {
-    "Proyecto 1": {
-      title: "Vaulty - Completed",
-      description: "Effortless Security for Developer's Credentials. (Landing Page)",
-      status: "Completed",
-      link: "https://vaultyy.vercel.app/",
-      logo: "/logos/Vaulty.png", 
-    },
-    "Proyecto 2": {
-      title: "Vix - In Development",
-      description: "Stream Without Fear Of CopyRight ",
-      status: "In Development",
-      logo: "/logos/V.png", 
-    },
-    "Proyecto 3": {
-      title: "V - Completed",
-      description: "The V Programming Language Fan Page",
-      status: "Completed",
-      link: "https://vlanguage.vercel.app",
-      logo: "/logos/Vl.png", 
-    },
-    "Proyecto 4": {
-      title: "Go-Github - Contributed",
-      description: "Go Library For Accessing Github API v3",
-      status: "Completed",
-      link: "https://github.com/google/go-github",
-      logo: "/logos/google.png",
-    },
-  };
-
-  const handleMouseMove = (event: MouseEvent) => {
-    setMousePosition({ x: event.clientX, y: event.clientY });
-  };
-
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  const handleMouseEnter = (project: string) => {
-    setHoveredProject(project);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredProject(null);
-  };
-
+const ServicesSection: React.FC = () => {
   return (
-    <div id="work" className="w-screen h-screen bg-black text-white flex border-t border-neutral-800">
+    <section className="flex justify-center items-center py-16 px-6 md:px-52">
+      <div className="max-w-6xl">
+        <p className={`text-lime-400 font-extralight text-sm mb-4 ${geist.className}`}>
+          // THINGS I DO
+        </p>
+        <h2 className="text-4xl font-normal mb-4 text-white">
+          The things that make me sleep late.
+        </h2>
+        <p className="text-neutral-400 font-light text-base mb-12">
+          I'm 15yo and I started a year ago, I specialize in these things
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Cloud Infrastructure */}
+          <div className="p-6 rounded-lg shadow-md">
+            <div className="text-lime-400 mb-4">
+              <span className="text-2xl">
+                <Cloud />
+              </span>
+            </div>
+            <h3 className="text-xl font-light mb-2 text-white">
+              Cloud Infrastructure
+            </h3>
+            <p className="text-gray-300 font-extralight">
+              Building scalable and reliable cloud systems using modern infrastructure.
+            </p>
+          </div>
 
-      <div className="w-1/3 sticky top-0 p-4 border-r border-neutral-800 flex flex-col justify-between h-screen">
-        <div className="flex items-center space-x-4">
-          {/* Logo del proyecto */}
-          {hoveredProject && projectDetails[hoveredProject].logo && (
-            <Image
-              src={projectDetails[hoveredProject].logo} 
-              alt={projectDetails[hoveredProject].title}
-              width={40} 
-              height={40} 
-              className="object-contain"
-            />
-          )}
+          {/* CLI Development */}
+          <div className="p-6 rounded-lg shadow-md">
+            <div className="text-lime-400 mb-4">
+              <span className="text-2xl">
+                <Code />
+              </span>
+            </div>
+            <h3 className="text-xl font-light mb-2 text-white">
+              CLI Development
+            </h3>
+            <p className="text-gray-300 font-extralight">
+              Creating efficient and intuitive command-line tools for developers.
+            </p>
+          </div>
 
+          {/* Web Development */}
+          <div className="p-6 rounded-lg shadow-md">
+            <div className="text-lime-400 mb-4">
+              <span className="text-2xl">
+                <Monitor />
+              </span>
+            </div>
+            <h3 className="text-xl font-light mb-2 text-white">
+              Web Development
+            </h3>
+            <p className="text-gray-300 font-extralight">
+              Building high-performance websites with a focus on UX/UI and responsiveness.
+            </p>
+          </div>
 
-          <div>
-            <h1 className="text-2xl font-thin">
-              {hoveredProject ? projectDetails[hoveredProject].title : "My Projects & Contributions"}
-            </h1>
-            <p className="mt-2 text-sm font-thin">
-              {hoveredProject ? projectDetails[hoveredProject].description : "Explore my work and contributions."}
+          {/* CI/CD Pipelines */}
+          <div className="p-6 rounded-lg shadow-md">
+            <div className="text-lime-400 mb-4">
+              <span className="text-2xl">
+                <RefreshCw />
+              </span>
+            </div>
+            <h3 className="text-xl font-light mb-2 text-white">
+              CI/CD Pipelines
+            </h3>
+            <p className="text-gray-300 font-extralight">
+              Automating development workflows with robust CI/CD pipelines.
             </p>
           </div>
         </div>
       </div>
-
-
-      <div className="w-2/3 overflow-y-scroll scrollbar-hide">
-
-        <div
-          className="h-screen flex items-center justify-center border-b border-neutral-800 w-full relative group"
-          onMouseEnter={() => handleMouseEnter("Proyecto 1")}
-          onMouseLeave={handleMouseLeave}
-        >
-          {projectDetails["Proyecto 1"].link ? (
-            <Link href={projectDetails["Proyecto 1"].link} passHref>
-              <Image
-                src="/projects/Vaultyy.webp"
-                alt="Proyecto 1"
-                width={500}
-                height={300}
-                className="absolute top-0 left-0 w-full h-full object-cover"
-                unoptimized={true}
-              />
-            </Link>
-          ) : (
-            <Image
-              src="/projects/Vaultyy.webp"
-              alt="Proyecto 1"
-              width={500}
-              height={300}
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              unoptimized={true}
-            />
-          )}
-        </div>
-
-        <div
-          className="h-screen flex items-center justify-center border-b border-neutral-800 w-full relative group"
-          onMouseEnter={() => handleMouseEnter("Proyecto 2")}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Image
-            src="/projects/Vix.webp"
-            alt="Proyecto 2"
-            width={500}
-            height={300}
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            unoptimized={true}
-          />
-        </div>
-
-
-        <div
-          className="h-screen flex items-center justify-center w-full border-b border-neutral-800 relative group"
-          onMouseEnter={() => handleMouseEnter("Proyecto 3")}
-          onMouseLeave={handleMouseLeave}
-        >
-          {projectDetails["Proyecto 3"].link ? (
-            <Link href={projectDetails["Proyecto 3"].link} passHref>
-              <Image
-                src="/projects/V.webp"
-                alt="Proyecto 3"
-                width={500}
-                height={300}
-                className="absolute top-0 left-0 w-full h-full object-cover"
-                unoptimized={true}
-              />
-            </Link>
-          ) : (
-            <Image
-              src="/projects/V.webp"
-              alt="Proyecto 3"
-              width={500}
-              height={300}
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              unoptimized={true}
-            />
-          )}
-        </div>
-
-        <div
-          className="h-screen flex items-center justify-center w-full border-b border-neutral-800 relative group"
-          onMouseEnter={() => handleMouseEnter("Proyecto 4")}
-          onMouseLeave={handleMouseLeave}
-        >
-          {projectDetails["Proyecto 4"].link ? (
-            <Link href={projectDetails["Proyecto 4"].link} passHref>
-              <Image
-                src="/projects/GoGithub.webp"
-                alt="Proyecto 4"
-                width={500}
-                height={300}
-                className="absolute top-0 left-0 w-full h-full object-cover"
-                unoptimized={true}
-              />
-            </Link>
-          ) : (
-            <Image
-              src="/projects/GoGithub.webp"
-              alt="Proyecto 4"
-              width={500}
-              height={300}
-              className="absolute top-0 left-0 w-full h-full object-cover"
-              unoptimized={true}
-            />
-          )}
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default StickySection;
+export default ServicesSection;
