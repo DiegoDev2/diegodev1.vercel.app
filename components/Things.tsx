@@ -8,7 +8,7 @@ const geist = Geist_Mono({
 
 export default function ThingsSection() {
   return (
-    <section className="flex justify-center items-center py-16 px-6 md:px-52">
+    <section id="things" className="flex justify-center items-center py-16 px-6 md:px-52">
       <div className="max-w-6xl">
         <p className={`text-lime-400 font-extralight text-sm mb-4 ${geist.className}`}>
            { '// THINGS I DO' } 

@@ -13,7 +13,6 @@ const p = Poppins( {
 export const metadata = {
   title: "DiegoDev1",
   description: "DiegoDev1 Portafolio",
-  image: "/LOGOPNGG.png",
 };
 
 export default function RootLayout({
@@ -24,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/LOGOPNGG.png" />
+
       </head>
       <body className={p.className}>
         {children}
