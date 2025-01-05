@@ -10,7 +10,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex justify-center items-center py-4">
 
         <div className="flex items-center space-x-10">
-          <div className="text-white font-sans text-lg tracking-widest">
+          <div className="text-white font-normal text-lg ">
             DiegoDev1
           </div>
 
@@ -18,10 +18,10 @@ export default function Header() {
 
           <nav className={`flex space-x-4 ${geist.className}`}>
             <a
-              href="#services"
+              href="#things"
               className="text-white text-sm  font-light tracking-widest hover:underline"
             >
-              SERVICES
+              ABOUT-ME
             </a>
             <a
               href="#projects"
