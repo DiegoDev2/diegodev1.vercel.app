@@ -35,7 +35,7 @@ const projects = [
   {
     title: "Go-GitHub",
     description: "Contributor & Reviewer Code", 
-    image: "/projects/GoGitHub.webp",
+    image: "/projects/GoGithub.webp",
     technologies: "Go",
     status: "view", 
     link: "https://github.com/google/go-github",
