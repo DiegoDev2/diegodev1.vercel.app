@@ -26,7 +26,7 @@ const projects = [
   },
   {
     title: "V",
-    description: "Fan-made Website",
+    description: "FAN WEBSITE",
     image: "/projects/V.webp",
     technologies: "Next.js, TailwindCSS",
     status: "view", 
@@ -34,11 +34,19 @@ const projects = [
   },
   {
     title: "Go-GitHub",
-    description: "Contributor & Reviewer Code", 
+    description: "CONTRIBUTOR & REVIEWER CODE", 
     image: "/projects/GoGithub.webp",
     technologies: "Go",
     status: "view", 
     link: "https://github.com/google/go-github",
+  },
+  {
+    title: "Fleet",
+    description: "DEVELOPER & CREATOR", 
+    image: "/projects/Fleet.png",
+    technologies: "Go",
+    status: "view", 
+    link: "https://github.com/diegodev2/fleet",
   },
 ];
 
