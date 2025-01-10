@@ -29,7 +29,7 @@ const HyperProcessSection = () => {
               100% satisfied with the final result.
             </p>
             <button
-              className={`flex items-center  mt-8 px-6 py-3 bg-gray-200 gap-x-2 uppercase text-black font-light rounded-xl hover:bg-yellow-500 transition ${geist.className}`}
+              className={`flex items-center  mt-8 px-6 py-3 bg-gray-200 gap-x-2 uppercase text-black font-light rounded-xl hover:bg-gray-300 transition ${geist.className}`}
             >
               Start Your Journey{" "}
               <Image
