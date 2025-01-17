@@ -9,10 +9,10 @@ const geist = Geist_Mono({
 
 const projects = [
   {
-    title: "Vyx",
+    title: "Splay",
     description: "WEBSITE & BACKEND",
-    image: "/projects/Vyx.png",
-    technologies: "Next.js, TailwindCSS, Supabase, Go, Docker, Kubernetes",
+    image: "/projects/Splay.png",
+    technologies: "Next.js, TailwindCSS, Supabase, Go, Docker, Kubernetes, Grafana",
     status: "development", 
     link: "",
   },
@@ -105,7 +105,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md text-white text-xs md:text-sm p-2 transition-opacity rounded group-hover:opacity-0">
+                <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md text-white text-xs md:text-sm p-2 transition-opacity  group-hover:opacity-0">
                   <p className={`font-extralight ${geist.className}`}>{project.technologies}</p>
                 </div>
               </div>
