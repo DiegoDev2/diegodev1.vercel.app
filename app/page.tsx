@@ -4,7 +4,6 @@ import ProjectsSection from "@/components/Projects";
 import Process from "@/components/Process";
 import ThingsSection from "@/components/Things";
 import { LenisProvider } from "@/components/ui/LenisProvider";
-import TallyForm from "@/components/TallyForm";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
       <ThingsSection />
       <ProjectsSection />
       <Process />
-      <TallyForm />
     </>
   );
 }
