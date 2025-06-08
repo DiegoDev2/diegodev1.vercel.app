@@ -2,13 +2,10 @@ import { Poppins } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-
-
-const p = Poppins( {
-   weight: [ '100', '200', '300', '400', '500', '600', '700', '800', '900' ], 
-   subsets: [ 'latin' ],
-  
-  } );
+const p = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "DiegoDev1",
@@ -22,10 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-
-      </head>
-      <body className={p.className}>
+      <head></head>
+      <body cz-shortcut-listen="true" className={p.className}>
         {children}
         <Analytics />:
       </body>
