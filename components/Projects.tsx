@@ -6,14 +6,14 @@ const geist = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 const projects = [
   {
     title: "Splay",
     description: "WEBSITE & BACKEND",
     image: "/projects/Splay.png",
-    technologies: "Next.js, TailwindCSS, Supabase, Go, Docker, Kubernetes, Grafana",
-    status: "development", 
+    technologies:
+      "Next.js, TailwindCSS, Supabase, Go, Docker, Kubernetes, Grafana",
+    status: "development",
     link: "",
   },
   {
@@ -25,27 +25,35 @@ const projects = [
     link: "https://vaultyy.vercel.app",
   },
   {
+    title: "CollWeb",
+    description: "WEBSITE",
+    image: "/projects/CollWebp.webp",
+    technologies: "Next.js, TailwindCSS",
+    status: "view",
+    link: "https://collweb.vercel.app/",
+  },
+  {
     title: "V",
     description: "FAN WEBSITE",
     image: "/projects/V.webp",
     technologies: "Next.js, TailwindCSS",
-    status: "view", 
+    status: "view",
     link: "https://vlanguage.vercel.app",
   },
   {
     title: "Go-GitHub",
-    description: "CONTRIBUTOR & REVIEWER CODE", 
+    description: "CONTRIBUTOR & REVIEWER CODE",
     image: "/projects/GoGithub.webp",
     technologies: "Go",
-    status: "view", 
+    status: "view",
     link: "https://github.com/google/go-github",
   },
   {
     title: "Fleet",
-    description: "DEVELOPER & CREATOR", 
+    description: "DEVELOPER & CREATOR",
     image: "/projects/Fleet.png",
     technologies: "Go",
-    status: "view", 
+    status: "view",
     link: "https://github.com/diegodev2/fleet",
   },
 ];
@@ -54,22 +62,25 @@ export default function Projects() {
   return (
     <section id="projects" className=" py-16">
       <div className="container mx-auto px-6 lg:px-20">
-
-
-
         <div className="flex flex-col gap-24">
           {projects.map((project, index) => (
-            <div key={index} className="flex flex-col items-center text-center gap-y-4">
+            <div
+              key={index}
+              className="flex flex-col items-center text-center gap-y-4"
+            >
               <div className="flex gap-x-5 items-center">
-                <p className="text-white text-lg font-normal">{project.title}</p>
+                <p className="text-white text-lg font-normal">
+                  {project.title}
+                </p>
                 <div className="h-4 w-px bg-neutral-700"></div>
-                <p className={`text-neutral-300 text-sm font-extralight ${geist.className}`}>
+                <p
+                  className={`text-neutral-300 text-sm font-extralight ${geist.className}`}
+                >
                   {project.description}
                 </p>
               </div>
 
               <div className="relative group">
-
                 <Image
                   className="rounded-xl border border-neutral-700"
                   src={project.image}
@@ -106,7 +117,9 @@ export default function Projects() {
                 </div>
 
                 <div className="absolute bottom-4 left-4 bg-black/70 backdrop-blur-md text-white text-xs md:text-sm p-2 transition-opacity  group-hover:opacity-0">
-                  <p className={`font-extralight ${geist.className}`}>{project.technologies}</p>
+                  <p className={`font-extralight ${geist.className}`}>
+                    {project.technologies}
+                  </p>
                 </div>
               </div>
             </div>
