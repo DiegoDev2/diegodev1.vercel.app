@@ -27,7 +27,7 @@ const projects = [
   {
     title: "CollWeb",
     description: "WEBSITE",
-    image: "/projects/CollWebp.webp",
+    image: "/projects/CollWeb.webp",
     technologies: "Next.js, TailwindCSS",
     status: "view",
     link: "https://collweb.vercel.app/",
