@@ -5,11 +5,17 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
 jobs:
   deploy-preview:
     name: Deploy Preview
     runs-on: ubuntu-latest
-
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -69,7 +75,6 @@ jobs:
     name: Performance Check
     needs: deploy-preview
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -77,10 +82,27 @@ jobs:
       - name: Wait for deployment
         run: sleep 15
 
-      - name: Lighthouse CI
+      - name: Run Lighthouse CI
+        id: lighthouse
         uses: treosh/lighthouse-ci-action@v10
         with:
           urls: |
             ${{ needs.deploy-preview.outputs.url }}
           uploadArtifacts: true
           temporaryPublicStorage: true
+          artifactName: lighthouse_report
+
+      - name: Comment PR with Lighthouse Report
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `📊 **Lighthouse Report**
+
+              🔗 [View Report](${{
+                steps.lighthouse.outputs.lighthouseReportUrl
+              }})`
+            })

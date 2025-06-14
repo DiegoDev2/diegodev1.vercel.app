@@ -1,19 +1,37 @@
 import { sanityClient } from "@/lib/sanity.client";
 import { notFound } from "next/navigation";
 import { PostBody } from "@/components/ui/PostBody";
+import { type Metadata } from "next";
 
-export default async function BlogPost({
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({
   params,
-}: {
-  params: { slug: string };
-}) {
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  const post = await sanityClient.fetch(
+    `*[_type == "post" && slug.current == $slug][0]{ title }`,
+    { slug },
+  );
+
+  return {
+    title: post?.title ?? "Post",
+  };
+}
+
+export default async function BlogPost({ params }: PageProps) {
+  const { slug } = await params;
+
   const post = await sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug][0]{
       title,
       body,
       publishedAt
     }`,
-    { slug: params.slug },
+    { slug },
   );
 
   if (!post) return notFound();
