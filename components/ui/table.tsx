@@ -1,10 +1,10 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 
-const geistMono = Geist_Mono({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["100", "200", "300"],
+  weight: ["200", "300"],
 });
 
 const Table = React.forwardRef<
@@ -16,7 +16,7 @@ const Table = React.forwardRef<
       ref={ref}
       className={cn(
         "w-full caption-bottom text-sm text-white border-collapse",
-        geistMono.className,
+        geist.className,
         className,
       )}
       {...props}
@@ -33,7 +33,7 @@ const TableHeader = React.forwardRef<
     ref={ref}
     className={cn(
       "[&_tr]:border-b border-white/10",
-      geistMono.className,
+      geist.className,
       className,
     )}
     {...props}
@@ -47,7 +47,7 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn("[&_tr:last-child]:border-0", geistMono.className, className)}
+    className={cn("[&_tr:last-child]:border-0", geist.className, className)}
     {...props}
   />
 ));
@@ -61,7 +61,7 @@ const TableFooter = React.forwardRef<
     ref={ref}
     className={cn(
       "border-t border-white/10 font-medium dark:bg-white/5",
-      geistMono.className,
+      geist.className,
       className,
     )}
     {...props}
@@ -77,7 +77,7 @@ const TableRow = React.forwardRef<
     ref={ref}
     className={cn(
       "border-b border-white/10 transition-colors hover:bg-white/5 data-[state=selected]:bg-white/5",
-      geistMono.className,
+      geist.className,
       className,
     )}
     {...props}
@@ -93,7 +93,7 @@ const TableHead = React.forwardRef<
     ref={ref}
     className={cn(
       "h-10 px-2 text-left align-middle font-medium text-white/70",
-      geistMono.className,
+      geist.className,
       className,
     )}
     {...props}
@@ -109,7 +109,7 @@ const TableCell = React.forwardRef<
     ref={ref}
     className={cn(
       "p-2 align-middle text-white [&:has([role=checkbox])]:pr-0",
-      geistMono.className,
+      geist.className,
       className,
     )}
     {...props}
@@ -123,7 +123,7 @@ const TableCaption = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <caption
     ref={ref}
-    className={cn("mt-4 text-sm text-white/70", geistMono.className, className)}
+    className={cn("mt-4 text-sm text-white/70", geist.className, className)}
     {...props}
   />
 ));

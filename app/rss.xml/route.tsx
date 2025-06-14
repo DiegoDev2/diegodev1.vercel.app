@@ -35,8 +35,10 @@ export async function GET() {
   });
 
   return new NextResponse(feed.rss2(), {
+    status: 200,
     headers: {
-      "Content-Type": "application/xml",
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "Cache-Control": "s-maxage=600, stale-while-revalidate",
     },
   });
 }

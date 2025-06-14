@@ -7,6 +7,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Clock, Calendar } from "lucide-react";
+import Link from "next/link";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -61,36 +62,42 @@ const components: PortableTextComponents = {
   },
   block: {
     h1: ({ children }) => (
-      <h1 className="text-4xl font-bold mb-2 text-center">{children}</h1>
+      <h1 className={`${geist.className} text-4xl font-bold mb-2 text-center`}>
+        {children}
+      </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-3xl font-semibold mb-3">{children}</h2>
+      <h2 className={`${geist.className} text-3xl font-semibold mb-3`}>
+        {children}
+      </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-2xl font-semibold mb-2">{children}</h3>
+      <h3 className={`${geist.className} text-2xl font-semibold mb-2`}>
+        {children}
+      </h3>
     ),
     normal: ({ children }) => (
-      <p className="mb-4 text-white font-[var(--font-geist-mono)]">
-        {children}
-      </p>
+      <p className={`${geist.className} mb-4 text-white`}>{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-white/20 pl-4 italic text-white/80 my-4">
+      <blockquote
+        className={`${geist.className} border-l-4 border-white/20 pl-4 italic text-white/80 my-4`}
+      >
         {children}
       </blockquote>
     ),
   },
   marks: {
     strong: ({ children }) => (
-      <strong className="font-bold font-[var(--font-geist)]">{children}</strong>
+      <strong className={`${geist.className} font-bold`}>{children}</strong>
     ),
     em: ({ children }) => (
-      <em className="italic font-[var(--font-geist)]">{children}</em>
+      <em className={`${geist.className} italic`}>{children}</em>
     ),
     link: ({ children, value }) => (
       <a
         href={value.href}
-        className="text-white underline hover:text-white/70"
+        className={`${geist.className} text-white underline hover:text-white/70`}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -100,22 +107,20 @@ const components: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc ml-5 mb-4 font-[var(--font-geist)]">
-        {children}
-      </ul>
+      <ul className={`${geist.className} list-disc ml-5 mb-4`}>{children}</ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal ml-5 mb-4 font-[var(--font-geist)]">
+      <ol className={`${geist.className} list-decimal ml-5 mb-4`}>
         {children}
       </ol>
     ),
   },
   listItem: {
     bullet: ({ children }) => (
-      <li className="mb-1 font-[var(--font-geist)]">{children}</li>
+      <li className={`${geist.className} mb-1`}>{children}</li>
     ),
     number: ({ children }) => (
-      <li className="mb-1 font-[var(--font-geist)]">{children}</li>
+      <li className={`${geist.className} mb-1`}>{children}</li>
     ),
   },
 };
@@ -129,48 +134,76 @@ export function PostBody({ title, publishedAt, value }: Props) {
 
   return (
     <div
-      className={`relative py-16 border border-white/10 bg-black px-40 text-white ${geist.variable} ${geistMono.variable}`}
+      className={`relative text-[#EDEDED] tracking-tight py-16 border border-white/15 bg-black px-40  ${geist.variable} ${geistMono.variable}`}
       style={{ borderRadius: 0, maxWidth: "100%", width: "100%" }}
     >
-      <div className="absolute top-[-16px] left-[-16px] text-white text-4xl select-none">
-        +
-      </div>
-      <div className="absolute bottom-[-16px] right-[-16px] text-white py-16 font-thin text-4xl select-none">
-        +
-      </div>
-
-      <h1 className="text-4xl font-semibold text-center mb-4">{title}</h1>
-
-      <div className="flex items-center justify-center gap-4 mb-8">
-        <Image
-          src="https://github.com/diegodev2.png"
-          alt="Diegodev2"
-          width={30}
-          height={30}
-          className="rounded-full border border-white/10"
-        />
-        <div className="text-center flex items-center gap-2">
-          <p className="font-semibold font-[var(--font-geist)]">DiegoDev2</p>
-          <p className="text-white/60 text-sm font-[var(--font-geist-mono)]">
-            SWD-SRE
-          </p>
+      <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
+        <div className="flex gap-64 px-32">
+          <hr className="w-px h-full bg-neutral-800 border-dotted" />
+          <hr className="w-px h-full bg-neutral-800 border-dotted" />
         </div>
       </div>
 
-      <div className="flex justify-between items-center text-white/60 text-sm py-10 font-[var(--font-geist-mono)]">
-        <div className="flex items-center gap-2">
-          <Clock size={16} />
-          <span>2 min read</span>
+      <div className="relative z-10">
+        <div className="flex justify-center mb-4">
+          <div
+            className={`${geist.className} flex items-center gap-1 text-sm `}
+          >
+            <Link
+              href="/blog"
+              className="text-white/40 hover:text-white transition-colors hover:underline"
+            >
+              Blog
+            </Link>
+            <span className="text-white/50">/</span>
+            <Link
+              href="/"
+              className="text-white/90 hover:text-white transition-colors hover:underline"
+            >
+              Portafolio
+            </Link>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          <Calendar size={16} />
-          <span>{formattedDate}</span>
-        </div>
-      </div>
 
-      <article className="relative z-10 max-w-full  font-[var(--font-geist-mono)] text-white">
-        <PortableText value={value} components={components} />
-      </article>
+        <h1
+          className={`${geist.className} text-[#EDEDED] tracking-tight text-balance text-5xl font-semibold text-center mb-4`}
+        >
+          {title}
+        </h1>
+
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <Image
+            src="https://github.com/diegodev2.png"
+            alt="Diegodev2"
+            width={30}
+            height={30}
+            className="rounded-full border border-white/10"
+          />
+          <div className="text-center flex items-center gap-2">
+            <p className="font-semibold font-[var(--font-geist)]">DiegoDev2</p>
+            <p className={`${geist.className} text-white/60 text-sm `}>
+              SWD-SRE
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center text-white/60 text-sm py-10 font-[var(--font-geist-mono)]">
+          <div className="flex items-center gap-2">
+            <Clock size={16} />
+            <span>2 min read</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Calendar size={16} />
+            <span>{formattedDate}</span>
+          </div>
+        </div>
+
+        <article
+          className={`relative z-10 max-w-full text-white ${geist.className}`}
+        >
+          <PortableText value={value} components={components} />
+        </article>
+      </div>
     </div>
   );
 }

@@ -13,6 +13,11 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Geist } from "next/font/google";
+const g = Geist({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 type Post = {
   _id: string;
@@ -30,14 +35,7 @@ export function BlogTable({ posts }: { posts: Post[] }) {
   );
 
   return (
-    <div className="space-y-4">
-      <input
-        type="text"
-        placeholder="Filter posts..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="w-full p-2 text-sm border rounded-md border-muted"
-      />
+    <div className={`${g.className} space-y-4`}>
       <Table>
         <TableCaption>A list of published posts.</TableCaption>
         <TableHeader>
