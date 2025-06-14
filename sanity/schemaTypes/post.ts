@@ -29,5 +29,22 @@ export default {
       title: 'Body',
       type: 'blockContent',
     },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Engineering', value: 'Engineering'},
+          {title: 'Devops', value: 'Devops'},
+          {title: 'Frontend', value: 'Frontend'},
+          {title: 'Self-hosted', value: 'Self-hosted'},
+          {title: 'v0', value: 'v0'},
+          {title: 'Changelog', value: 'Changelog'},
+          {title: 'General', value: 'General'},
+        ],
+        layout: 'dropdown',
+      },
+    },
   ],
 }

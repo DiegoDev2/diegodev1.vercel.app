@@ -2,6 +2,7 @@ import { sanityClient } from "@/lib/sanity.client";
 import { notFound } from "next/navigation";
 import { PostBody } from "@/components/ui/PostBody";
 import { type Metadata } from "next";
+import { LenisProvider } from "@/components/ui/LenisProvider";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -37,7 +38,9 @@ export default async function BlogPost({ params }: PageProps) {
   if (!post) return notFound();
 
   return (
-    <main className="max-w-[1100px] mx-auto px-4 py-12">
+    <main className="max-w-[1100px] mx-auto px-4 py-44 ">
+      <section className="section-down-gradient"></section>
+      <LenisProvider />
       <PostBody
         title={post.title}
         publishedAt={post.publishedAt}

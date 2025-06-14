@@ -24,6 +24,7 @@ const NavbarDemo = () => {
   const links = [
     { name: "ABOUT-ME", href: "#things" },
     { name: "PROJECTS", href: "#projects" },
+    { name: "BLOG", href: "/blog" },
   ];
 
   return (
