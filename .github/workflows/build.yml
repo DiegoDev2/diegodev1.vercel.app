@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
 env:
   NODE_ENV: production
 
@@ -118,11 +123,16 @@ jobs:
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy Sanity Studio
-        if: secrets.SANITY_AUTH_TOKEN
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
         run: |
-          cd sanity
-          pnpm install --frozen-lockfile
-          SANITY_AUTH_TOKEN=${{ secrets.SANITY_AUTH_TOKEN }} pnpm deploy
+          if [ -n "$SANITY_AUTH_TOKEN" ]; then
+            cd sanity
+            pnpm install --frozen-lockfile
+            pnpm deploy
+          else
+            echo "SANITY_AUTH_TOKEN not set, skipping Sanity deployment"
+          fi
 
   deploy-preview:
     name: Deploy Preview
