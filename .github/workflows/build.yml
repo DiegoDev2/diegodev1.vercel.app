@@ -129,7 +129,7 @@ jobs:
           if [ -n "$SANITY_AUTH_TOKEN" ]; then
             cd sanity
             pnpm install --frozen-lockfile
-            pnpm deploy
+            npx sanity deploy --token "$SANITY_AUTH_TOKEN" --yes
           else
             echo "SANITY_AUTH_TOKEN not set, skipping Sanity deployment"
           fi
