@@ -1,0 +1,89 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  NODE_ENV: production
+
+jobs:
+  test:
+    name: Test and Lint
+    uses: ./.github/workflows/reusable/test.yml
+    with:
+      check-sanity: true
+
+  build:
+    name: Build
+    needs: test
+    uses: ./.github/workflows/reusable/build.yml
+    with:
+      environment: production
+      build-sanity: true
+
+  deploy-production:
+    name: Deploy Production
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build
+    uses: ./.github/workflows/reusable/deploy.yml
+    with:
+      environment: production
+      deploy-sanity: true
+    secrets:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+
+  deploy-preview:
+    name: Deploy Preview
+    if: github.event_name == 'pull_request'
+    needs: build
+    uses: ./.github/workflows/reusable/deploy.yml
+    with:
+      environment: preview
+      deploy-sanity: false
+    secrets:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+  lighthouse:
+    name: Performance Audit
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: deploy-production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Wait for deployment
+        run: sleep 30
+
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://diegodev1.vercel.app
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  notify:
+    name: Notify Status
+    if: always() && github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [deploy-production, lighthouse]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Success Notification
+        if: needs.deploy-production.result == 'success'
+        run: |
+          echo "🚀 Portfolio deployed successfully!"
+          echo "🌐 URL: https://diegodev1.vercel.app"
+          echo "🎨 Sanity Studio: https://portafolio.sanity.studio"
+
+      - name: Failure Notification
+        if: needs.deploy-production.result == 'failure'
+        run: |
+          echo "❌ Deployment failed!"
+          exit 1

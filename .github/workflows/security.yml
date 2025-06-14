@@ -1,0 +1,107 @@
+name: Security and Dependencies
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Monday 9 AM
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.11.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit main project
+        run: pnpm audit --audit-level moderate
+        continue-on-error: true
+
+      - name: Audit Sanity project
+        run: cd sanity && pnpm install --frozen-lockfile && pnpm audit --audit-level moderate
+        continue-on-error: true
+
+  dependency-review:
+    name: Dependency Review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate
+
+  update-dependencies:
+    name: Update Dependencies
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10.11.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: Update dependencies
+        run: |
+          pnpm update --latest
+          cd sanity && pnpm update --latest
+
+      - name: Test after update
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm lint
+          pnpm build
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update dependencies"
+          title: "🔧 Automated Dependency Updates"
+          body: |
+            ## 🔧 Automated Dependency Updates
+
+            This PR updates dependencies to their latest versions.
+
+            ### ✅ Checks passed:
+            - Linting
+            - Build test
+
+            Please review and test before merging.
+          branch: automated-dependency-updates
+          delete-branch: true
