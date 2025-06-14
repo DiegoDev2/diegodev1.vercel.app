@@ -5,8 +5,8 @@ Simple CI/CD setup for Next.js portfolio with Sanity CMS.
 ## 📋 What's Included
 
 ### GitHub Actions Workflows
-- **Main Build & Deploy** (`build.yml`) - Production deployments
-- **Preview Deployments** (`deploy-preview.yml`) - PR previews
+- **Main Build & Deploy** (`build.yml`) - Complete CI/CD pipeline
+- **Preview Deployments** (`deploy-preview.yml`) - PR previews  
 - **Security & Dependencies** (`security.yml`) - Weekly updates
 
 ### Development Scripts
