@@ -5,11 +5,17 @@ on:
     branches: [main]
     types: [opened, synchronize, reopened]
 
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
 jobs:
   deploy-preview:
     name: Deploy Preview
     runs-on: ubuntu-latest
-
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -69,7 +75,6 @@ jobs:
     name: Performance Check
     needs: deploy-preview
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
