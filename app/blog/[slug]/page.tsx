@@ -3,16 +3,18 @@ import { notFound } from "next/navigation";
 import { PostBody } from "@/components/ui/PostBody";
 import { type Metadata } from "next";
 
-type Props = {
-  params: {
-    slug: string;
-  };
+type PageProps = {
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+
   const post = await sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug][0]{ title }`,
-    { slug: params.slug },
+    { slug },
   );
 
   return {
@@ -20,14 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPost({ params }: PageProps) {
+  const { slug } = await params;
+
   const post = await sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug][0]{
       title,
       body,
       publishedAt
     }`,
-    { slug: params.slug },
+    { slug },
   );
 
   if (!post) return notFound();
