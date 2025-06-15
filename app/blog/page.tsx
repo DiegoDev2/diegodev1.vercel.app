@@ -1,4 +1,3 @@
-import { sanityClient } from "@/lib/sanity.client";
 import { BlogClient } from "@/components/ui/BlogClient";
 import { Geist } from "next/font/google";
 
@@ -7,17 +6,11 @@ const g = Geist({
   subsets: ["latin"],
 });
 
-export default async function BlogPage() {
-  const posts = await sanityClient.fetch(
-    `*[_type == "post"] | order(publishedAt desc) {
-      _id, title, slug, excerpt, publishedAt, category
-    }`,
-  );
-
+export default function BlogPage() {
   return (
     <main className={`w-full py-36 mx-auto ${g.className}`}>
       <section className="section-down-gradient" />
-      <BlogClient posts={posts} />
+      <BlogClient />
     </main>
   );
 }
