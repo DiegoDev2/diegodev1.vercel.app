@@ -54,6 +54,7 @@
     "reactflow": "^11.11.4",
     "sanity": "^3.92.0",
     "sass": "^1.83.0",
+    "swr": "^2.3.3",
     "tailwind-merge": "^2.5.3",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-animate": "^1.0.7",
