@@ -62,22 +62,30 @@ const components: PortableTextComponents = {
   },
   block: {
     h1: ({ children }) => (
-      <h1 className={`${geist.className} text-4xl font-bold mb-2 text-center`}>
+      <h1
+        className={`${geist.className} text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center`}
+      >
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className={`${geist.className} text-3xl font-semibold mb-3`}>
+      <h2
+        className={`${geist.className} text-2xl sm:text-3xl font-semibold mb-3`}
+      >
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className={`${geist.className} text-2xl font-semibold mb-2`}>
+      <h3
+        className={`${geist.className} text-xl sm:text-2xl font-semibold mb-2`}
+      >
         {children}
       </h3>
     ),
     normal: ({ children }) => (
-      <p className={`${geist.className} mb-4 text-white`}>{children}</p>
+      <p className={`${geist.className} mb-4 leading-relaxed text-white`}>
+        {children}
+      </p>
     ),
     blockquote: ({ children }) => (
       <blockquote
@@ -134,21 +142,19 @@ export function PostBody({ title, publishedAt, value }: Props) {
 
   return (
     <div
-      className={`relative text-[#EDEDED] tracking-tight py-16 border border-white/15 bg-black px-40  ${geist.variable} ${geistMono.variable}`}
+      className={`relative text-[#EDEDED] tracking-tight py-16 border border-white/15 bg-black px-6 md:px-16 lg:px-40 ${geist.variable} ${geistMono.variable}`}
       style={{ borderRadius: 0, maxWidth: "100%", width: "100%" }}
     >
       <div className="absolute inset-0 flex justify-center pointer-events-none z-0">
-        <div className="flex gap-64 px-32">
+        <div className="flex gap-8 md:gap-32 lg:gap-64 px-4 md:px-16">
           <hr className="w-px h-full bg-neutral-800 border-dotted" />
           <hr className="w-px h-full bg-neutral-800 border-dotted" />
         </div>
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 max-w-3xl mx-auto leading-relaxed">
         <div className="flex justify-center mb-4">
-          <div
-            className={`${geist.className} flex items-center gap-1 text-sm `}
-          >
+          <div className={`${geist.className} flex items-center gap-1 text-sm`}>
             <Link
               href="/blog"
               className="text-white/40 hover:text-white transition-colors hover:underline"
@@ -166,12 +172,12 @@ export function PostBody({ title, publishedAt, value }: Props) {
         </div>
 
         <h1
-          className={`${geist.className} text-[#EDEDED] tracking-tight text-balance text-5xl font-semibold text-center mb-4`}
+          className={`${geist.className} text-[#EDEDED] tracking-tight text-balance text-3xl sm:text-4xl lg:text-5xl font-semibold text-center mb-4`}
         >
           {title}
         </h1>
 
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <Image
             src="https://github.com/diegodev2.png"
             alt="Diegodev2"
@@ -179,15 +185,15 @@ export function PostBody({ title, publishedAt, value }: Props) {
             height={30}
             className="rounded-full border border-white/10"
           />
-          <div className="text-center flex items-center gap-2">
+          <div className="text-center flex flex-col sm:flex-row items-center gap-2">
             <p className="font-semibold font-[var(--font-geist)]">DiegoDev2</p>
-            <p className={`${geist.className} text-white/60 text-sm `}>
+            <p className={`${geist.className} text-white/60 text-sm`}>
               SWD-SRE
             </p>
           </div>
         </div>
 
-        <div className="flex justify-between items-center text-white/60 text-sm py-10 font-[var(--font-geist-mono)]">
+        <div className="flex flex-col sm:flex-row justify-between items-center text-white/60 text-sm py-10 font-[var(--font-geist-mono)] gap-2">
           <div className="flex items-center gap-2">
             <Clock size={16} />
             <span>2 min read</span>
